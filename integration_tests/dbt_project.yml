@@ -6,9 +6,9 @@ config-version: 2
 
 vars:
   intercom_source:
-    admin: "{{ source('intercom','admin') }}"
-    team: "{{ source('intercom','team') }}"
-    tag: "{{ source('intercom','tag') }}"
+    admin: "{{ ref('intercom_admin_data') }}"
+    team: "{{ ref('intercom_team_data') }}"
+    tag: "{{ ref('intercom_tag_data') }}"
 
 seeds:
   intercom_source_integration_tests:
