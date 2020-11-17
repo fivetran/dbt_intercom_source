@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: stg_intercom__admin
+    description: Information on an Intercom teammate. 
+    columns:
+      - name: admin_id
+        tests:
+          - unique
+          - not_null
+        description: Unique integer id of an admin record.
+      - name: name
+        description: The name associated with the admin record.
+      - name: email
+        description: The email associated with the admin.
+      - name: job_title
+        description: The job title associated with the admin.
+      - name: _fivetran_deleted
+        description: Whether the record has been deleted in the source system.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
+  - name: stg_intercom__team
+    description: Information related to the teams within the Intercom account. Please note a team is a group of admins.
+    columns:
+      - name: team_id
+        description: Unique integer id of a team record.
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: The name of the team which a group of admins are associated with.
+      - name: _fivetran_deleted
+        description: Whether the record has been deleted in the source system.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
+  - name: stg_intercom__tag
+    description: Information related to the teams within the Intercom account. Please note a team is a group of admins.
+    columns:
+      - name: tag_id
+        tests:
+          - unique
+          - not_null
+        description: Unique integer id of a tag.
+      - name: name 
+        description: The name of the tag. Names are case insensitive.
+      - name: _fivetran_deleted
+        description: Whether the record has been deleted in the source system.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"

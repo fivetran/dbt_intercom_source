@@ -1,0 +1,26 @@
+name: 'intercom_source_integration_tests'
+version: '1.0.0'
+profile: 'integration_tests'
+config-version: 2
+
+
+vars:
+  intercom_source:
+    admin: "{{ source('intercom','admin') }}"
+    team: "{{ source('intercom','team') }}"
+    tag: "{{ source('intercom','tag') }}"
+
+seeds:
+  intercom_source_integration_tests:
+    intercom_admin_data:
+      +column_types:
+        _fivetran_synced: timestamp
+        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+    intercom_team_data:
+      +column_types:
+        _fivetran_synced: timestamp
+        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+    intercom_tag_data:
+      +column_types:
+        _fivetran_synced: timestamp
+        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"

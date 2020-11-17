@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: intercom
+    schema: "{{ var('intercom_schema', 'intercom') }}"
+    database: "{{ var('intercom_database', target.database) }}"
+    tables:
+      - name: admin
+        description: Information on an Intercom teammate. 
+        columns:
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
+          - name: id
+            description: Unique integer id of an admin record.
+          - name: name
+            description: The name associated with the admin record.
+          - name: email
+            description: The email associated with the admin.
+          - name: job_title
+            description: The job title associated with the admin.
+          - name: _fivetran_deleted
+            description: Whether the record has been deleted in the source system.
+      - name: team
+        description: Information related to the teams within the Intercom account. Please note a team is a group of admins.
+        columns:
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
+          - name: id
+            description: Unique integer id of a team record.
+          - name: name
+            description: The name of the team which a group of admins are associated with.
+          - name: _fivetran_deleted
+            description: Whether the record has been deleted in the source system.
+      - name: tag
+        description: Information related to the teams within the Intercom account. Please note a team is a group of admins.
+        columns:
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
+          - name: id
+            description: Unique integer id of a tag.
+          - name: name 
+            description: The name of the tag. Names are case insensitive.
+          - name: _fivetran_deleted
+            description: Whether the record has been deleted in the source system.
