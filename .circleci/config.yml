@@ -51,6 +51,10 @@ jobs:
             echo `pwd`
             cd integration_tests
             dbt deps
-            dbt seed --target bigquery --full-refresh
+            dbt seed --target bigquery
             dbt run --target bigquery --full-refresh
             dbt test --target bigquery
+      - save_cache:
+          key: deps2-{{ .Branch }}
+          paths:
+            - "venv"
