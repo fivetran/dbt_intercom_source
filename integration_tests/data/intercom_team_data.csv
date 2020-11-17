@@ -1,4 +1,4 @@
-team_id,name,_fivetran_deleted,_fivetran_synced
+id,name,_fivetran_deleted,_fivetran_synced
 1,Gutierrez-King,2019-08-12 14:06:12,2020-01-03 05:47:48
 2,Durham PLC,2017-12-03 13:18:16,2020-09-25 10:06:49
 3,Potter-Rojas,2020-06-29 04:24:25,2020-10-15 23:34:39

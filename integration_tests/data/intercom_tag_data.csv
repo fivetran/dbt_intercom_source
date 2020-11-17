@@ -1,4 +1,4 @@
-tag_id,name,_fivetran_deleted,_fivetran_synced
+id,name,_fivetran_deleted,_fivetran_synced
 1,"Matthews, Flores and Lewis",2019-11-03 03:03:17,2020-06-09 04:55:32
 2,"Cooper, Miller and Blair",FALSE,2019-03-25 22:31:33
 3,Mathis-Fox,FALSE,2019-10-12 16:21:31

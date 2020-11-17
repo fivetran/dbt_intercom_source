@@ -1,4 +1,4 @@
-admin_id,email,job_title,name,_fivetran_deleted,_fivetran_synced
+id,email,job_title,name,_fivetran_deleted,_fivetran_synced
 1,Stacy.Thompson@gmail.com,"Scientist, research (maths)",Toni Ray,2017-04-06 20:14:39,2018-02-21 14:36:51
 2,Tiffany.Ward@gmail.com,Accommodation manager,Joshua Lewis,FALSE,2019-01-06 13:29:20
 3,Joshua.Bradford@gmail.com,Charity fundraiser,Carlos Lamb,2016-07-25 15:25:16,2018-09-24 08:59:31
