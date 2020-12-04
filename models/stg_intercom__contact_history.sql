@@ -2,7 +2,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_intercom__admin_tmp') }}
+    from {{ ref('stg_intercom__contact_history_tmp') }}
 
 ),
 
@@ -18,15 +18,15 @@ fields as (
     
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_intercom__admin_tmp')),
-                staging_columns=get_admin_columns()
+                source_columns=adapter.get_columns_in_relation(ref('stg_intercom__contact_history_tmp')),
+                staging_columns=get_contact_history_columns()
             )
         }}
         
         --The below script allows for pass through columns.
-        {% if var('admin_pass_through_columns') %}
+        {% if var('contact_history_pass_through_columns') %}
         ,
-        {{ var('admin_pass_through_columns') | join (", ")}}
+        {{ var('contact_history_pass_through_columns') | join (", ")}}
 
         {% endif %}
 
@@ -36,17 +36,27 @@ fields as (
 final as (
     
     select 
-        id as admin_id,
-        name,
-        job_title
+        id as contact_id,
+        admin_id,
+        created_at,
+        updated_at,
+        signed_up_at,
+        name, 
+        role,
+        email,
+        last_replied_at,
+        last_email_clicked_at,
+        last_email_opened_at,
+        last_contacted_at,
+        unsubscribed_from_emails as is_unsubscribed_from_emails,
 
         --The below script allows for pass through columns.
-        {% if var('admin_pass_through_columns') %}
+        {% if var('contact_history_pass_through_columns') %}
         ,
-        {{ var('admin_pass_through_columns') | join (", ")}}
+        {{ var('contact_history_pass_through_columns') | join (", ")}}
 
         {% endif %}
-        
+
     from fields
 )
 

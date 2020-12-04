@@ -2,7 +2,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_intercom__tag_tmp') }}
+    from {{ ref('stg_intercom__contact_company_history_tmp') }}
 
 ),
 
@@ -15,11 +15,10 @@ fields as (
     in the source (source_columns from dbt_salesforce_source/macros/).
     For more information refer to our dbt_fivetran_utils documentation (https://github.com/fivetran/dbt_fivetran_utils.git).
     */
-    
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_intercom__tag_tmp')),
-                staging_columns=get_tag_columns()
+                source_columns=adapter.get_columns_in_relation(ref('stg_intercom__contact_company_history_tmp')),
+                staging_columns=get_contact_company_history_columns()
             )
         }}
         
@@ -29,11 +28,10 @@ fields as (
 final as (
     
     select 
-        id as tag_id,
-        name
-        
+        company_id,
+        contact_id,
+        contact_updated_at
     from fields
 )
 
-select * 
-from final
+select * from final

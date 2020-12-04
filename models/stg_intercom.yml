@@ -1,49 +1,96 @@
 version: 2
 
 models:
-  - name: stg_intercom__admin
-    description: Information on an Intercom teammate. 
+  - name: stg_intercom__conversation_history
+    description: TBD
     columns:
+      - name: conversation_id
+      - name: created_at
+      - name: assignee_id
+      - name: assignee_type
+      - name: conversation_rating_value
+      - name: conversation_rating_remark
+      - name: first_contact_reply_created_at
+      - name: first_contact_reply_type
+      - name: is_open
+      - name: is_read
+      - name: source_author_id
+      - name: source_author_type
+      - name: state
+      - name: updated_at
+      - name: waiting_since
+      - name: snoozed_until
+  - name: stg_intercom__conversation_part_history
+    description: TBD
+    columns:
+      - name: conversation_part_id
+      - name: part_type
+      - name: conversation_id
+      - name: author_id
+      - name: author_type
+      - name: created_at
+      - name: assigned_to_id
+      - name: assigned_to_type
+      - name: conversation_updated_at
+      - name: updated_at
+  - name: stg_intercom__contact_history
+    description: TBD
+    columns:
+      - name: id
       - name: admin_id
-        tests:
-          - unique
-          - not_null
-        description: Unique integer id of an admin record.
+      - name: created_at
+      - name: signed_up_at
       - name: name
-        description: The name associated with the admin record.
       - name: email
-        description: The email associated with the admin.
-      - name: job_title
-        description: The job title associated with the admin.
-      - name: _fivetran_deleted
-        description: Whether the record has been deleted in the source system.
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
-  - name: stg_intercom__team
-    description: Information related to the teams within the Intercom account. Please note a team is a group of admins.
+      - name: role
+      - name: last_replied_at
+      - name: last_contacted_at
+      - name: last_email_clicked_at
+      - name: last_email_opened_at
+      - name: is_unsubscribed_from_emails
+  - name: stg_intercom__contact_tag_history
+    description: TBD
     columns:
-      - name: team_id
-        description: Unique integer id of a team record.
-        tests:
-          - unique
-          - not_null
-      - name: name
-        description: The name of the team which a group of admins are associated with.
-      - name: _fivetran_deleted
-        description: Whether the record has been deleted in the source system.
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
+      - name: contact_id
+      - name: contact_updated_at
+      - name: tag_id
+  - name: stg_intercom__conversation_contact_history
+    description: TBD
+    columns:
+      - name: contact_id
+      - name: conversation_id
+      - name: conversation_updated_at
   - name: stg_intercom__tag
-    description: Information related to the teams within the Intercom account. Please note a team is a group of admins.
+    description: TBD
     columns:
       - name: tag_id
-        tests:
-          - unique
-          - not_null
-        description: Unique integer id of a tag.
-      - name: name 
-        description: The name of the tag. Names are case insensitive.
-      - name: _fivetran_deleted
-        description: Whether the record has been deleted in the source system.
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
+      - name: name
+  - name: stg_intercom__admin
+    description: TBD
+    columns:
+      - name: admin_id
+      - name: job_title
+      - name: name
+  - name: stg_intercom__company_history
+    description: TBD
+    columns:
+      - name: company_history_id
+      - name: company_id
+      - name: name
+      - name: industry
+      - name: created_at
+      - name: updated_at
+      - name: user_count
+      - name: session_count
+  - name: stg_intercom__contact_company_history
+    description: TBD
+    columns:
+      - name: company_id
+      - name: contact_id
+      - name: contact_updated_at
+  - name: stg_intercom__company_tag_history
+    description: TBD
+    columns:
+      - name: company_id
+      - name: tag_id
+      - name: company_updated_at

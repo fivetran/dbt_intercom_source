@@ -2,7 +2,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_intercom__admin_tmp') }}
+    from {{ ref('stg_intercom__contact_tag_history_tmp') }}
 
 ),
 
@@ -18,34 +18,20 @@ fields as (
     
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_intercom__admin_tmp')),
-                staging_columns=get_admin_columns()
+                source_columns=adapter.get_columns_in_relation(ref('stg_intercom__contact_tag_history_tmp')),
+                staging_columns=get_contact_tag_history_columns()
             )
         }}
         
-        --The below script allows for pass through columns.
-        {% if var('admin_pass_through_columns') %}
-        ,
-        {{ var('admin_pass_through_columns') | join (", ")}}
-
-        {% endif %}
-
     from base
 ),
 
 final as (
     
     select 
-        id as admin_id,
-        name,
-        job_title
-
-        --The below script allows for pass through columns.
-        {% if var('admin_pass_through_columns') %}
-        ,
-        {{ var('admin_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        contact_id,
+        contact_updated_at,
+        tag_id
         
     from fields
 )
