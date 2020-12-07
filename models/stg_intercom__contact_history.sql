@@ -49,6 +49,7 @@ final as (
         last_email_opened_at,
         last_contacted_at,
         unsubscribed_from_emails as is_unsubscribed_from_emails,
+        _fivetran_deleted
 
         --The below script allows for pass through columns.
         {% if var('contact_history_pass_through_columns') %}
@@ -62,3 +63,4 @@ final as (
 
 select * 
 from final
+--where not coalesce(_fivetran_deleted, false)

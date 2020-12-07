@@ -39,11 +39,14 @@ final as (
         id as company_history_id,
         company_id,
         name,
+        website,
         industry,
         created_at,
         updated_at,
         user_count,
-        session_count
+        session_count,
+        monthly_spend,
+        _fivetran_deleted
 
         --The below script allows for pass through columns.
         {% if var('contact_history_pass_through_columns') %}
@@ -55,4 +58,6 @@ final as (
     from fields
 )
 
-select * from final
+select * 
+from final
+where not coalesce(_fivetran_deleted, false)
