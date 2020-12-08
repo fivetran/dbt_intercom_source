@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_conversation_part_history_columns()
             )
         }}
-
-        --The below script allows for pass through columns.
-        {% if var('conversation_part_history_pass_through_columns') %}
-        ,
-        {{ var('conversation_part_history_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from base
 ),
@@ -46,13 +39,6 @@ final as (
         assigned_to_type,
         conversation_updated_at,
         updated_at
-
-        --The below script allows for pass through columns.
-        {% if var('conversation_part_history_pass_through_columns') %}
-        ,
-        {{ var('conversation_part_history_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )

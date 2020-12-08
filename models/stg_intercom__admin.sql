@@ -22,13 +22,6 @@ fields as (
                 staging_columns=get_admin_columns()
             )
         }}
-        
-        --The below script allows for pass through columns.
-        {% if var('admin_pass_through_columns') %}
-        ,
-        {{ var('admin_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from base
 ),
@@ -39,13 +32,6 @@ final as (
         id as admin_id,
         name,
         job_title
-
-        --The below script allows for pass through columns.
-        {% if var('admin_pass_through_columns') %}
-        ,
-        {{ var('admin_pass_through_columns') | join (", ")}}
-
-        {% endif %}
         
     from fields
 )

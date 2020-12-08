@@ -1,26 +1,51 @@
 name: 'intercom_source_integration_tests'
-version: '1.0.0'
+version: '0.1.0'
 profile: 'integration_tests'
 config-version: 2
 
-
 vars:
   intercom_source:
-    admin: "{{ ref('intercom_admin_data') }}"
-    team: "{{ ref('intercom_team_data') }}"
-    tag: "{{ ref('intercom_tag_data') }}"
-
+    admin: "{{ ref('admin_data') }}"
+    conversation_history: "{{ ref('conversation_history_data') }}"
+    conversation_part_history: "{{ ref('conversation_part_history_data') }}"
+    contact_history: "{{ ref('contact_history_data') }}"
+    conversation_contact_history: "{{ ref('conversation_contact_history_data') }}"
+    company_history: "{{ ref('company_history_data') }}"
+    contact_company_history: "{{ ref('contact_company_history_data') }}"
+    
 seeds:
   intercom_source_integration_tests:
-    intercom_admin_data:
+    conversation_history_data:
       +column_types:
-        _fivetran_synced: timestamp
-        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-    intercom_team_data:
+          created_at: timestamp
+          first_contact_reply_created_at: timestamp
+          updated_at: timestamp
+          waiting_since: timestamp
+          snoozed_until: timestamp
+  conversation_part_history_data:
       +column_types:
-        _fivetran_synced: timestamp
-        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
-    intercom_tag_data:
+          created_at: timestamp
+          conversation_updated_at: timestamp
+          updated_at: timestamp
+  contact_history_data:
       +column_types:
-        _fivetran_synced: timestamp
-        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+          created_at: timestamp
+          signed_up_at: timestamp
+          last_replied_at: timestamp
+          last_contacted_at: timestamp
+          last_email_clicked_at: timestamp
+          last_email_opened_at: timestamp
+  conversation_contact_history_data:
+      +column_types:
+          conversation_updated_at: timestamp 
+  company_history_data:
+      +column_types:
+          created_at: timestamp
+          updated_at: timestamp
+  contact_company_history_data:
+      +column_types:
+          contact_updated_at: timestamp
+
+clean-targets:
+    - target
+    - dbt_modules

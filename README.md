@@ -13,7 +13,7 @@ This package enriches your Fivetran data by doing the following:
 This package contains staging models, designed to work simultaneously with our [Intercom modeling package](https://github.com/fivetran/dbt_intercom). The staging models name columns consistently across all packages:
 * Boolean fields are prefixed with `is_` or `has_`
 * Timestamps are appended with `_at`
-* ID primary keys are prefixed with the name of the table. For example, [the admin table's ID column is renamed `admin_id`].
+* ID primary keys are prefixed with the name of the table. For example, the admin table's ID column is renamed `admin_id`.
 
 ## Installation Instructions
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
@@ -32,8 +32,20 @@ vars:
     intercom_schema: your_schema_name
 ```
 
-## Contributions
+This package includes all source columns defined in the macros foleder. To add additional columns to this package, do so using our pass-through column variables. This is extremely useful if you'd like to include custom fields to the package.
 
+
+```yml
+# dbt_project.yml
+
+...
+vars:
+  intercom_source:
+    company_history_pass_through_columns: [company_custom_field_1, company_custom_field_2]
+    contact_history_pass_through_columns: [super_cool_contact_field]
+```
+
+## Contributions
 Additional contributions to this package are very welcome! Please create issues
 or open PRs against `master`. Check out 
 [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 

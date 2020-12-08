@@ -23,13 +23,6 @@ fields as (
             )
         }}
 
-        --The below script allows for pass through columns.
-        {% if var('conversation_history_pass_through_columns') %}
-        ,
-        {{ var('conversation_history_pass_through_columns') | join (", ")}}
-
-        {% endif %}
-
     from base
 ),
 
@@ -55,13 +48,6 @@ final as (
         updated_at,
         waiting_since,
         snoozed_until
-
-        --The below script allows for pass through columns.
-        {% if var('conversation_history_pass_through_columns') %}
-        ,
-        {{ var('conversation_history_pass_through_columns') | join (", ")}}
-
-        {% endif %}
 
     from fields
 )

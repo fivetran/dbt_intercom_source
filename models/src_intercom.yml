@@ -1,8 +1,8 @@
 version: 2
  
 sources:
-  - name: intercom_development
-    schema: "{{ var('intercom_schema', 'intercom_development') }}"
+  - name: intercom
+    schema: "{{ var('intercom_schema', 'intercom') }}"
     database: "{{ var('intercom_database', target.database) }}"
     loader: fivetran
     loaded_at_field: _fivetran_synced
