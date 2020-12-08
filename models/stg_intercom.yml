@@ -22,8 +22,6 @@ models:
         description: Time of the first text conversation part from a contact.
       - name: first_contact_reply_type
         description: The type of communication in which the first contact reply was.
-      - name: is_open
-        description: Boolean indicating whether the conversation is open.
       - name: is_read
         description: Boolean indicating whether the conversation message has been read.
       - name: source_author_id

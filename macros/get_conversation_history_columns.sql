@@ -12,7 +12,6 @@
     {"name": "first_contact_reply_type", "datatype": dbt_utils.type_string()},
     {"name": "first_contact_reply_url", "datatype": dbt_utils.type_string()},
     {"name": "id", "datatype": dbt_utils.type_int()},
-    {"name": "open", "datatype": "boolean"},
     {"name": "priority", "datatype": dbt_utils.type_string()},
     {"name": "read", "datatype": "boolean"},
     {"name": "sla_name", "datatype": dbt_utils.type_int()},

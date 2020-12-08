@@ -31,8 +31,6 @@ sources:
             description: Time of the first text conversation part from a contact.
           - name: first_contact_reply_type
             description: The type of communication in which the first contact reply was.
-          - name: open
-            description: Boolean indicating whether the conversation is open.
           - name: read
             description: Boolean indicating whether the conversation message has been read.
           - name: source_author_id
@@ -125,6 +123,8 @@ sources:
             description: The admin job title.
           - name: name
             description: The name of the admin.
+          - name: _fivetran_deleted
+            description: Boolean indicating whether the contact is deleted.
 
       - name: company_history
         loaded_at_field: _fivetran_synced

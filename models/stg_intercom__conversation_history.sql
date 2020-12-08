@@ -37,7 +37,6 @@ final as (
         conversation_rating_remark,
         first_contact_reply_created_at,
         first_contact_reply_type,
-        open as is_open,
         read as is_read,
         source_author_id,
         source_author_type,
@@ -49,8 +48,7 @@ final as (
         waiting_since,
         snoozed_until
 
-    from fields
-)
+    from fields)
 
 select * 
 from final

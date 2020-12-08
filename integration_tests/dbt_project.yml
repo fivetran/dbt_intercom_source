@@ -14,37 +14,43 @@ vars:
     contact_company_history: "{{ ref('contact_company_history_data') }}"
     
 seeds:
-  intercom_source_integration_tests:
-    conversation_history_data:
-      +column_types:
-          created_at: timestamp
-          first_contact_reply_created_at: timestamp
-          updated_at: timestamp
-          waiting_since: timestamp
-          snoozed_until: timestamp
-  conversation_part_history_data:
-      +column_types:
-          created_at: timestamp
-          conversation_updated_at: timestamp
-          updated_at: timestamp
-  contact_history_data:
-      +column_types:
-          created_at: timestamp
-          signed_up_at: timestamp
-          last_replied_at: timestamp
-          last_contacted_at: timestamp
-          last_email_clicked_at: timestamp
-          last_email_opened_at: timestamp
-  conversation_contact_history_data:
-      +column_types:
-          conversation_updated_at: timestamp 
-  company_history_data:
-      +column_types:
-          created_at: timestamp
-          updated_at: timestamp
-  contact_company_history_data:
-      +column_types:
-          contact_updated_at: timestamp
+    +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+    intercom_source_integration_tests:
+        admin_data:
+        conversation_history_data:
+            +column_types:
+                id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+                created_at: timestamp
+                first_contact_reply_created_at: timestamp
+                updated_at: timestamp
+                waiting_since: timestamp
+                snoozed_until: timestamp
+        conversation_part_history_data:
+            +column_types:
+                id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+                conversation_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+                created_at: timestamp
+                conversation_updated_at: timestamp
+                updated_at: timestamp
+        contact_history_data:
+            +column_types:
+                created_at: timestamp
+                signed_up_at: timestamp
+                last_replied_at: timestamp
+                last_contacted_at: timestamp
+                last_email_clicked_at: timestamp
+                last_email_opened_at: timestamp
+        conversation_contact_history_data:
+            +column_types:
+                conversation_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+                conversation_updated_at: timestamp 
+        company_history_data:
+            +column_types:
+                created_at: timestamp
+                updated_at: timestamp
+        contact_company_history_data:
+            +column_types:
+                contact_updated_at: timestamp
 
 clean-targets:
     - target

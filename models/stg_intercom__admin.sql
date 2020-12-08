@@ -31,10 +31,12 @@ final as (
     select 
         id as admin_id,
         name,
-        job_title
+        job_title,
+        _fivetran_deleted
         
     from fields
 )
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)
