@@ -31,12 +31,18 @@ sources:
             description: Time of the first text conversation part from a contact.
           - name: first_contact_reply_type
             description: The type of communication in which the first contact reply was.
-          - name: read
+          - name: is_read
             description: Boolean indicating whether the conversation message has been read.
           - name: source_author_id
             description: id of the individual who authored the first message.
           - name: source_author_type
             description: The type of individual who authored the first message.
+          - name: source_delivered_as
+            description: How the conversation was initially delivered to the responder.
+          - name: source_type
+            description: The type of conversation. This includes conversation, push, facebook, twitter and email.
+          - name: source_subject
+            description: The subject of the conversation created by the initiator.
           - name: state
             description: The current state of the conversation (open or close).
           - name: updated_at
@@ -131,9 +137,9 @@ sources:
         description: Table containing historical information about companies which have been created within Intercom.
         columns:
           - name: id
-            description: The unique identifier representing the historical Intercom defined company.
-          - name: company_id
             description: The unique identifier representing the Intercom defined company.
+          - name: company_id
+            description: The custom identifier representing the Intercom defined company.
           - name: name
             description: The name of the company.
           - name: website

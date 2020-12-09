@@ -28,6 +28,12 @@ models:
         description: id of the individual who authored the first message.
       - name: source_author_type
         description: The type of individual who authored the first message.
+      - name: source_delivered_as
+        description: How the conversation was initially delivered to the responder.
+      - name: source_type
+        description: The type of conversation. This includes conversation, push, facebook, twitter and email.
+      - name: source_subject
+        description: The subject of the conversation created by the initiator.
       - name: state
         description: The current state of the conversation (open or close).
       - name: updated_at
@@ -127,11 +133,11 @@ models:
     description: Table containing historical information about companies which have been created within Intercom.
     columns:
       - name: company_history_id
-        description: The unique identifier representing the historical Intercom defined company.
+        description: The unique identifier representing the Intercom defined company.
         tests:
           - not_null
       - name: company_id
-        description: The unique identifier representing the Intercom defined company.
+        description: The custom identifier representing the Intercom defined company.
         tests:
           - not_null
       - name: name
