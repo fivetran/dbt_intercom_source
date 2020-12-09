@@ -1,4 +1,4 @@
-# Intercom (Source)
+# Intercom Source
 
 This package models Intercom data from [Fivetran's connector](https://fivetran.com/docs/applications/intercom). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1K3HTGqNQ-neUNeTtjJq42RHBV68_4FuXFp8X81zJ5Xo/edit#slide=id.p).
 
@@ -8,8 +8,10 @@ This package enriches your Fivetran data by doing the following:
 * Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 * Models staging tables, which will be used in our transform package
 
-## Models
+## Compatibility
+> Please be aware the [dbt_intercom_source](https://github.com/fivetran/dbt_intercom_source) and parent [dbt_intercom](https://github.com/fivetran/dbt_intercom) packages will only work with [Intercom V2.0](https://developers.intercom.com/intercom-api-reference/v2.0/reference#introduction) or greater. 
 
+## Models
 This package contains staging models, designed to work simultaneously with our [Intercom modeling package](https://github.com/fivetran/dbt_intercom). The staging models name columns consistently across all packages:
 * Boolean fields are prefixed with `is_` or `has_`
 * Timestamps are appended with `_at`
