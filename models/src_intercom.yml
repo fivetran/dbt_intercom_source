@@ -11,6 +11,9 @@ sources:
       error_after: {count: 48, period: hour}
 
     tables:
+      - name: user_company_history
+      - name: user_history
+      - name: conversation_customer_history
       - name: conversation_history
         loaded_at_field: _fivetran_synced
         description: Table containing the historical records of each conversation. Conversations are created when a contact replies to an outbound message, or when one admin directly sends a message to a single contact.

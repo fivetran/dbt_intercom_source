@@ -2,13 +2,6 @@ name: 'intercom_source' #this should be the name of the connector
 version: '0.1.0' #This should align w/ the current release version
 config-version: 2 #Required dbt config
 
-source-paths: ["models"]
-analysis-paths: ["analysis"]
-test-paths: ["tests"]
-data-paths: ["data"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
 #Model materialization should be defined as below
 models: 
   intercom_source:

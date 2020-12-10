@@ -29,8 +29,8 @@ final as (
     
     select 
         company_id,
-        contact_id,
-        contact_updated_at
+        coalesce(contact_id, user_id) as contact_id,
+        coalesce(contact_updated_at, user_updated_at) as contact_updated_at
     from fields
 )
 
