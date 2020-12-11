@@ -2,13 +2,6 @@ name: 'intercom_source' #this should be the name of the connector
 version: '0.1.0' #This should align w/ the current release version
 config-version: 2 #Required dbt config
 
-source-paths: ["models"]
-analysis-paths: ["analysis"]
-test-paths: ["tests"]
-data-paths: ["data"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
 #Model materialization should be defined as below
 models: 
   intercom_source:
@@ -20,14 +13,27 @@ models:
 #All variables used should always have a default model. Variables used should be outlined in the README
 vars:
   intercom_source:
+    #Variables you can change if your source tables are named differently.
     admin: "{{ source('intercom','admin') }}"
+    company_history: "{{ source('intercom','company_history') }}"
+    company_tag_history: "{{ source('intercom','company_tag_history') }}"
+    contact_company_history: "{{ source('intercom','contact_company_history') }}"
+    contact_history: "{{ source('intercom','contact_history') }}"
+    contact_tag_history: "{{ source('intercom','contact_tag_history') }}"
+    conversation_contact_history: "{{ source('intercom','conversation_contact_history') }}"
     conversation_history: "{{ source('intercom','conversation_history') }}"
     conversation_part_history: "{{ source('intercom','conversation_part_history') }}"
-    contact_history: "{{ source('intercom','contact_history') }}"
-    conversation_contact_history: "{{ source('intercom','conversation_contact_history') }}"
-    company_history: "{{ source('intercom','company_history') }}"
-    contact_company_history: "{{ source('intercom','contact_company_history') }}"
+    conversation_tag_history: "{{ source('intercom','conversation_tag_history') }}"
+    tag: "{{ source('intercom','tag') }}"
+    team_admin: "{{ source('intercom','team_admin') }}"
+    team: "{{ source('intercom','team') }}"
 
+    #Variables if your company utilizes the tags within your company, contact, and/or conversations.
+    using_contact_company: True
+    using_company_tags: True
+    using_contact_tags: True
+    using_conversation_tags: True
+    
     #(Optional) Pass-through arrays.
     company_history_pass_through_columns: []
     contact_history_pass_through_columns: []

@@ -1,9 +1,9 @@
-{{ config(enabled=var('using_contact_company', True)) }}
+{{ config(enabled=var('using_company_tags', True)) }}
 
 with base as (
 
     select * 
-    from {{ ref('stg_intercom__contact_company_history_tmp') }}
+    from {{ ref('stg_intercom__company_tag_history_tmp') }}
 
 ),
 
@@ -18,8 +18,8 @@ fields as (
     */
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_intercom__contact_company_history_tmp')),
-                staging_columns=get_contact_company_history_columns()
+                source_columns=adapter.get_columns_in_relation(ref('stg_intercom__company_tag_history_tmp')),
+                staging_columns=get_company_tag_history_columns()
             )
         }}
         
@@ -30,10 +30,12 @@ final as (
     
     select 
         company_id,
-        contact_id,
-        contact_updated_at
+        company_updated_at,
+        tag_id,
+        _fivetran_deleted
     from fields
 )
 
 select * 
 from final
+where not coalesce(_fivetran_deleted, false)
