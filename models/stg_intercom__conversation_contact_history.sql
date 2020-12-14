@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -22,7 +21,6 @@ fields as (
                 staging_columns=get_conversation_contact_history_columns()
             )
         }}
-        
     from base
 ),
 
@@ -31,8 +29,7 @@ final as (
     select 
         contact_id,
         conversation_id,
-        conversation_updated_at
-        
+        conversation_updated_at  
     from fields
 )
 

@@ -9,7 +9,7 @@ This package enriches your Fivetran data by doing the following:
 * Models staging tables, which will be used in our transform package
 
 ## Compatibility
-> Please be aware the [dbt_intercom_source](https://github.com/fivetran/dbt_intercom_source) and parent [dbt_intercom](https://github.com/fivetran/dbt_intercom) packages will only work with the [Fivetran Intercom connector](https://fivetran.com/docs/applications/intercom/changelog) which was released in July 2020 or any version thereafter. If your Intercom connector was set up prior to the July 2020 release, you will need to set up a new Intercom connector in order for the Fivetran dbt Intercom packages to work.
+> Please be aware the [dbt_intercom_source](https://github.com/fivetran/dbt_intercom_source) and transform [dbt_intercom](https://github.com/fivetran/dbt_intercom) packages will only work with the [Fivetran Intercom connector](https://fivetran.com/docs/applications/intercom/changelog) which was released in July 2020, or any version thereafter. If your Intercom connector was set up prior to the July 2020 release, you will need to set up a new Intercom connector in order for the Fivetran dbt Intercom packages to work.
 
 ## Models
 This package contains staging models, designed to work simultaneously with our [Intercom modeling package](https://github.com/fivetran/dbt_intercom). The staging models name columns consistently across all packages:
@@ -47,7 +47,7 @@ vars:
     contact_history_pass_through_columns: [super_cool_contact_field]
 ```
 
-Additionally, this package includes company, contact, and conversation tag mapping tables as well as a company contact mapping table. We understand not every Intercom customer utilizes these tables. As such, if you do not use these tables you may add the below configuration (removing any configs for tables you use) to your `dbt_project.yml` file. By default these variables are set to True:
+Additionally, this package includes company, contact, and conversation tag mapping tables as well as a company contact mapping table. We understand not every Intercom customer utilizes these tables. As such, if you do not use these tables you may add the below configuration (removing any configs for tables you use) to your `dbt_project.yml` file. By default these variables are set to `True`:
 
 ```yml
 # dbt_project.yml

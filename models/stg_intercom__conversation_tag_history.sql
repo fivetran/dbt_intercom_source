@@ -1,3 +1,4 @@
+--This model will only run if the using_conversation_tags variable within your dbt_project.yml file is set to True.
 {{ config(enabled=var('using_conversation_tags', True)) }}
 
 with base as (
@@ -23,7 +24,6 @@ fields as (
                 staging_columns=get_conversation_tag_history_columns()
             )
         }}
-        
     from base
 ),
 

@@ -21,7 +21,6 @@ fields as (
                 staging_columns=get_tag_columns()
             )
         }}
-        
     from base
 ),
 

@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -21,8 +20,7 @@ fields as (
                 source_columns=adapter.get_columns_in_relation(ref('stg_intercom__team_admin_tmp')),
                 staging_columns=get_team_admin_columns()
             )
-        }}
-        
+        }}   
     from base
 ),
 

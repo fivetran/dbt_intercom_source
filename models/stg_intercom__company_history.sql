@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -28,8 +27,7 @@ fields as (
         ,
         {{ var('contact_history_pass_through_columns') | join (", ")}}
 
-        {% endif %}
-        
+        {% endif %}    
     from base
 ),
 
@@ -54,7 +52,6 @@ final as (
         {{ var('contact_history_pass_through_columns') | join (", ")}}
 
         {% endif %}
-
     from fields
 )
 

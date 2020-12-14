@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -21,8 +20,7 @@ fields as (
                 source_columns=adapter.get_columns_in_relation(ref('stg_intercom__conversation_part_history_tmp')),
                 staging_columns=get_conversation_part_history_columns()
             )
-        }}
-        
+        }}       
     from base
 ),
 
@@ -39,7 +37,6 @@ final as (
         assigned_to_type,
         conversation_updated_at,
         updated_at
-
     from fields
 )
 

@@ -1,16 +1,13 @@
-name: 'intercom_source' #this should be the name of the connector
-version: '0.1.0' #This should align w/ the current release version
-config-version: 2 #Required dbt config
+name: 'intercom_source'
+version: '0.1.0'
+config-version: 2 
 
-#Model materialization should be defined as below
 models: 
   intercom_source:
     materialized: table
     tmp:
       materialized: view
 
-#Any variable used in models should be explicitly defined in the model file.
-#All variables used should always have a default model. Variables used should be outlined in the README
 vars:
   intercom_source:
     #Variables you can change if your source tables are named differently.

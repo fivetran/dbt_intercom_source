@@ -16,7 +16,7 @@ sources:
         description: Table containing information related to admins. Admins are the teammate accounts that have access to a workspace.
         columns:
           - name: id
-            description: The unique identfier representing the admin.
+            description: The unique identifier representing the admin.
           - name: job_title
             description: The admin job title.
           - name: name
@@ -90,11 +90,11 @@ sources:
           - name: name
             description: The name of the contact.
           - name: role
-            descrption: The role of the contact (user or lead).
+            description: The role of the contact (user or lead).
           - name: email
             description: The contacts email.
           - name: last_replied_at
-            description: The time when the contact lsat messaged in.
+            description: The time when the contact last messaged in.
           - name: last_contacted_at
             description: The time when the contact was last messaged.
           - name: last_email_clicked_at
@@ -165,7 +165,7 @@ sources:
           - name: updated_at
             description: The date the conversation was last updated at.
           - name: waiting_since
-            description: The last time a contact responded to an admin. The time a customer started waiting for a response. Set to null if last reply is from an admin.
+            description: The last time a contact responded to an admin. The time a customer started waiting for a response. Set to null if the last reply is from an admin.
           - name: snoozed_until
             description: If set, this is the time in the future when this conversation will be marked as open.
 

@@ -1,3 +1,4 @@
+--This model will only run if the using_company_tags variable within your dbt_project.yml file is set to True.
 {{ config(enabled=var('using_company_tags', True)) }}
 
 with base as (
@@ -21,8 +22,7 @@ fields as (
                 source_columns=adapter.get_columns_in_relation(ref('stg_intercom__company_tag_history_tmp')),
                 staging_columns=get_company_tag_history_columns()
             )
-        }}
-        
+        }}   
     from base
 ),
 

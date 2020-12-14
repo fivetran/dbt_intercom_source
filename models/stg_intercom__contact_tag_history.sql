@@ -1,3 +1,4 @@
+--This model will only run if the using_contact_tags variable within your dbt_project.yml file is set to True.
 {{ config(enabled=var('using_contact_tags', True)) }}
 
 with base as (
@@ -22,8 +23,7 @@ fields as (
                 source_columns=adapter.get_columns_in_relation(ref('stg_intercom__contact_tag_history_tmp')),
                 staging_columns=get_contact_tag_history_columns()
             )
-        }}
-        
+        }} 
     from base
 ),
 

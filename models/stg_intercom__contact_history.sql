@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -29,7 +28,6 @@ fields as (
         {{ var('contact_history_pass_through_columns') | join (", ")}}
 
         {% endif %}
-
     from base
 ),
 
@@ -57,10 +55,8 @@ final as (
         {{ var('contact_history_pass_through_columns') | join (", ")}}
 
         {% endif %}
-
     from fields
 )
 
 select * 
 from final
---where not coalesce(_fivetran_deleted, false)

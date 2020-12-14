@@ -21,7 +21,6 @@ fields as (
                 staging_columns=get_conversation_history_columns()
             )
         }}
-
     from base
 ),
 
@@ -46,7 +45,6 @@ final as (
         updated_at,
         waiting_since,
         snoozed_until
-
     from fields)
 
 select * 

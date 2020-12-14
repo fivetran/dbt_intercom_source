@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -22,7 +21,6 @@ fields as (
                 staging_columns=get_admin_columns()
             )
         }}
-
     from base
 ),
 
@@ -33,7 +31,6 @@ final as (
         name,
         job_title,
         _fivetran_deleted
-        
     from fields
 )
 

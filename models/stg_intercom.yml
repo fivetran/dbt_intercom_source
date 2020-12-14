@@ -5,7 +5,7 @@ models:
     description: Table containing information related to admins. Admins are the teammate accounts that have access to a workspace.
     columns:
       - name: admin_id
-        description: The unique identfier representing the admin.
+        description: The unique identifier representing the admin.
         tests:
           - not_null
           - unique
@@ -13,6 +13,8 @@ models:
         description: The admin job title.
       - name: name
         description: The name of the admin.
+      - name: _fivetran_deleted
+        description: Boolean indicating whether the contact is deleted.
 
   - name: stg_intercom__company_history
     description: Table containing historical information about companies which have been created within Intercom.
@@ -88,16 +90,18 @@ models:
         description: The unique identifier representing the admin which has been assigned ownership of the contact.
       - name: created_at
         description: The time when the contact was created within Intercom.
+      - name: updated_at
+        description: The time when the contact was last updated.
       - name: signed_up_at
         description: The time the contact signed up.
       - name: name
         description: The name of the contact.
       - name: role
-        descrption: The role of the contact (user or lead).
+        description: The role of the contact (will either be user or lead).
       - name: email
         description: The contacts email.
       - name: last_replied_at
-        description: The time when the contact lsat messaged in.
+        description: The time when the contact last messaged in.
       - name: last_contacted_at
         description: The time when the contact was last messaged.
       - name: last_email_clicked_at
@@ -176,7 +180,7 @@ models:
       - name: updated_at
         description: The date the conversation was last updated at.
       - name: waiting_since
-        description: The last time a contact responded to an admin. The time a customer started waiting for a response. Set to null if last reply is from an admin.
+        description: The last time a contact responded to an admin. The time a customer started waiting for a response. Set to null if the last reply is from an admin.
       - name: snoozed_until
         description: If set, this is the time in the future when this conversation will be marked as open.
 
@@ -237,6 +241,8 @@ models:
           - not_null
       - name: admin_id 
         description: The unique identifier of the admin associate with the team.
+      - name: _fivetran_deleted
+        description: Boolean indicating whether the contact is deleted.
 
   - name: stg_intercom__team
     description: Table containing teams which are made up of groups of admin in Intercom.
@@ -248,3 +254,5 @@ models:
           - unique
       - name: name 
         description: The name of the team.
+      - name: _fivetran_deleted
+        description: Boolean indicating whether the contact is deleted.
