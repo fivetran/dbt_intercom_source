@@ -3,6 +3,5 @@ packages:
   - package: fishtown-analytics/dbt_utils
     version: [">=0.6.0", "<0.7.0"]
 
-  # To switch once PR for fivetran_utils with median and first_value is completed.
   - git: https://github.com/fivetran/dbt_fivetran_utils.git
-    revision: median_macro
+    warn-unpinned: false
