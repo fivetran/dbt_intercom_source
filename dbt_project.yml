@@ -10,7 +10,6 @@ models:
 
 vars:
   intercom_source:
-    #Variables you can change if your source tables are named differently.
     admin: "{{ source('intercom','admin') }}"
     company_history: "{{ source('intercom','company_history') }}"
     company_tag_history: "{{ source('intercom','company_tag_history') }}"
