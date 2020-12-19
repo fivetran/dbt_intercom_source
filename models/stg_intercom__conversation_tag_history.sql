@@ -1,4 +1,4 @@
---This model will only run if the using_conversation_tags variable within your dbt_project.yml file is set to True.
+--To disable this model, set the using_conversation_tags variable within your dbt_project.yml file to False.
 {{ config(enabled=var('using_conversation_tags', True)) }}
 
 with base as (

@@ -24,7 +24,7 @@ Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instruction
 By default, this package looks for your Intercom data in the `intercom` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Intercom data is, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
-# dbt_project.yml
+# dbt_project.yml 
 
 ...
 config-version: 2
