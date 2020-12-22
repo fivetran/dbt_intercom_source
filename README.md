@@ -1,4 +1,6 @@
-# Intercom Source
+# Intercom (Source)
+
+> NOTE: Our Intercom [model](https://github.com/fivetran/dbt_intercom) and [source](https://github.com/fivetran/dbt_intercom_source) dbt packages only work with connectors that were [created in July 2020](https://fivetran.com/docs/applications/intercom/changelog) or later. If you created your connector before July 2020, you must set up a new Intercom connector to use these dbt packages.
 
 This package models Intercom data from [Fivetran's connector](https://fivetran.com/docs/applications/intercom). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1K3HTGqNQ-neUNeTtjJq42RHBV68_4FuXFp8X81zJ5Xo/edit#slide=id.p).
 
@@ -7,9 +9,6 @@ This package enriches your Fivetran data by doing the following:
 * Adds descriptions to tables and columns that are synced using Fivetran
 * Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 * Models staging tables, which will be used in our transform package
-
-## Compatibility
-> Please be aware the [dbt_intercom_source](https://github.com/fivetran/dbt_intercom_source) and transform [dbt_intercom](https://github.com/fivetran/dbt_intercom) packages will only work with the [Fivetran Intercom connector](https://fivetran.com/docs/applications/intercom/changelog) which was released in July 2020, or any version thereafter. If your Intercom connector was set up prior to the July 2020 release, you will need to set up a new Intercom connector in order for the Fivetran dbt Intercom packages to work.
 
 ## Models
 This package contains staging models, designed to work simultaneously with our [Intercom modeling package](https://github.com/fivetran/dbt_intercom). The staging models name columns consistently across all packages:
@@ -34,8 +33,7 @@ vars:
     intercom_schema: your_schema_name
 ```
 
-This package includes all source columns defined in the macros folder. To add additional columns to this package, do so using our pass-through column variables. This is extremely useful if you'd like to include custom fields to the package.
-
+This package includes all source columns defined in the macros folder. If you want to include custom fields in this package, you can add more columns using our pass-through column variables.
 
 ```yml
 # dbt_project.yml
@@ -47,7 +45,7 @@ vars:
     contact_history_pass_through_columns: [super_cool_contact_field]
 ```
 
-Additionally, this package includes company, contact, and conversation tag mapping tables as well as a company contact mapping table. We understand not every Intercom customer utilizes these tables. As such, if you do not use these tables you may add the below configuration (removing any configs for tables you use) to your `dbt_project.yml` file. By default these variables are set to `True`:
+Additionally, this package includes Intercom's `company`, `contact`, `company contact`, and `conversation tag` mapping tables. If you do not use these tables, add the configuration below to your `dbt_project.yml`. By default, these variables are set to `True`:
 
 ```yml
 # dbt_project.yml
