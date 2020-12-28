@@ -6,6 +6,9 @@ sources:
     database: "{{ var('intercom_database', target.database) }}"
     loader: fivetran
     loaded_at_field: _fivetran_synced
+    freshness:
+      warn_after: {count: 48, period: hour}
+      error_after: {count: 72, period: hour}
 
     tables:
       - name: admin
