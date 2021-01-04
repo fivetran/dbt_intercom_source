@@ -23,9 +23,9 @@ fields as (
         }}
 
         --The below script allows for pass through columns.
-        {% if var('contact_history_pass_through_columns') %}
+        {% if var('company_history_pass_through_columns') %}
         ,
-        {{ var('contact_history_pass_through_columns') | join (", ")}}
+        {{ var('company_history_pass_through_columns') | join (", ")}}
 
         {% endif %}    
     from base
@@ -47,9 +47,9 @@ final as (
         _fivetran_deleted
 
         --The below script allows for pass through columns.
-        {% if var('contact_history_pass_through_columns') %}
+        {% if var('company_history_pass_through_columns') %}
         ,
-        {{ var('contact_history_pass_through_columns') | join (", ")}}
+        {{ var('company_history_pass_through_columns') | join (", ")}}
 
         {% endif %}
     from fields
