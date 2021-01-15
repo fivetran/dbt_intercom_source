@@ -44,8 +44,11 @@ final as (
         state,
         updated_at,
         waiting_since,
-        snoozed_until
-    from fields)
+        snoozed_until,
+        sla_name,
+        sla_status
+    from fields
+)
 
 select * 
 from final
