@@ -48,6 +48,10 @@ sources:
             description: The total count of conversation sessions associated with the company.
           - name: monthly_spend
             description: How much revenue the company generates for your business.
+          - name: plan_id
+            description: Unique identifier representing the comapny plan.
+          - name: plan_name
+            description: The name of the plan you have associated with the company.
           - name: _fivetran_deleted
             description: Boolean indicating whether the contact is deleted.
 
@@ -168,6 +172,10 @@ sources:
             description: The last time a contact responded to an admin. The time a customer started waiting for a response. Set to null if the last reply is from an admin.
           - name: snoozed_until
             description: If set, this is the time in the future when this conversation will be marked as open.
+          - name: sla_name
+            description: The name of the SLA as given by the teammate when it was created.
+          - name: sla_status
+            description: One of “hit”, ”missed”, or “cancelled”.
 
       - name: conversation_part_history
         loaded_at_field: _fivetran_synced

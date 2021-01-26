@@ -34,9 +34,8 @@ fields as (
 final as (
     
     select 
-        id as company_history_id,
-        company_id,
-        name,
+        id as company_id,
+        name as company_name,
         website,
         industry,
         created_at,
@@ -44,6 +43,8 @@ final as (
         user_count,
         session_count,
         monthly_spend,
+        plan_id,
+        plan_name,
         _fivetran_deleted
 
         --The below script allows for pass through columns.

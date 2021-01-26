@@ -39,15 +39,14 @@ final as (
         created_at,
         updated_at,
         signed_up_at,
-        name, 
-        role,
-        email,
+        name as contact_name, 
+        role as contact_role,
+        email as contact_email,
         last_replied_at,
         last_email_clicked_at,
         last_email_opened_at,
         last_contacted_at,
-        unsubscribed_from_emails as is_unsubscribed_from_emails,
-        _fivetran_deleted
+        unsubscribed_from_emails as is_unsubscribed_from_emails
 
         --The below script allows for pass through columns.
         {% if var('contact_history_pass_through_columns') %}
