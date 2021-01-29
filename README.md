@@ -58,7 +58,6 @@ vars:
     using_contact_tags: False
     using_conversation_tags: False
     using_team: False
-    using_team_admin: False
 ```
 
 ## Contributions
