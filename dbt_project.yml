@@ -30,7 +30,6 @@ vars:
     using_contact_tags: True
     using_conversation_tags: True
     using_team: True
-    using_team_admin: True
     
     #(Optional) Pass-through arrays.
     company_history_pass_through_columns: []
