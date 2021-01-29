@@ -2,6 +2,8 @@ name: 'intercom_source'
 version: '0.1.1'
 config-version: 2 
 
+require-dbt-version: [">=0.18.0", "<0.20.0"]
+
 models: 
   intercom_source:
     materialized: table
