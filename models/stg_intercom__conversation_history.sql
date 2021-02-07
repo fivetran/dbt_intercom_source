@@ -36,6 +36,8 @@ final as (
         first_contact_reply_created_at,
         first_contact_reply_type,
         read as is_read,
+        sla_name,
+        sla_status,
         source_author_id,
         source_author_type,
         source_delivered_as,
