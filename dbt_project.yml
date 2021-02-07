@@ -25,6 +25,7 @@ vars:
     team: "{{ source('intercom','team') }}"
 
     #Variables if your company utilizes the tags within your company, contact, and/or conversations.
+    using_company: True
     using_contact_company: True
     using_company_tags: True
     using_contact_tags: True
