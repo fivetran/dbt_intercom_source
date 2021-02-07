@@ -45,7 +45,7 @@ vars:
     contact_history_pass_through_columns: [super_cool_contact_field]
 ```
 
-Additionally, this package includes Intercom's `company tag`, `contact tag`, `contact company`, and `conversation tag` mapping tables. If you do not use these tables, add the configuration below to your `dbt_project.yml`. By default, these variables are set to `True`:
+Additionally, this package includes Intercom's `company tag`, `contact tag`, `contact company`,`conversation tag`, `team` and `team admin` mapping tables. If you do not use these tables, add the configuration below to your `dbt_project.yml`. By default, these variables are set to `True`:
 
 ```yml
 # dbt_project.yml
@@ -57,6 +57,7 @@ vars:
     using_company_tags: False
     using_contact_tags: False
     using_conversation_tags: False
+    using_team: False
 ```
 
 ## Contributions
