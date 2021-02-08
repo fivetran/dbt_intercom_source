@@ -10,8 +10,8 @@ fields as (
     select
     /*
     The below macro is used to generate the correct SQL for package staging models. It takes a list of columns 
-    that are expected/needed (staging_columns from dbt_salesforce_source/models/tmp/) and compares it with columns 
-    in the source (source_columns from dbt_salesforce_source/macros/).
+    that are expected/needed (staging_columns from dbt_intercom_source/models/tmp/) and compares it with columns 
+    in the source (source_columns from dbt_intercom_source/macros/).
     For more information refer to our dbt_fivetran_utils documentation (https://github.com/fivetran/dbt_fivetran_utils.git).
     */
 
@@ -36,8 +36,6 @@ final as (
         first_contact_reply_created_at,
         first_contact_reply_type,
         read as is_read,
-        sla_name,
-        sla_status,
         source_author_id,
         source_author_type,
         source_delivered_as,
