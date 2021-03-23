@@ -49,7 +49,7 @@ sources:
           - name: monthly_spend
             description: How much revenue the company generates for your business.
           - name: plan_id
-            description: Unique identifier representing the comapny plan.
+            description: Unique identifier representing the company plan.
           - name: plan_name
             description: The name of the plan you have associated with the company.
           - name: _fivetran_deleted
