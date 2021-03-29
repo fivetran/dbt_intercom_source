@@ -1,5 +1,5 @@
---To disable this model, set the using_contact_company variable within your dbt_project.yml file to False.
-{{ config(enabled=var('using_contact_company', True)) }}
+--To disable this model, set the intercom__using_contact_company variable within your dbt_project.yml file to False.
+{{ config(enabled=var('intercom__using_contact_company', True)) }}
 
 with base as (
 
@@ -26,9 +26,9 @@ fields as (
         }}
 
         --The below script allows for pass through columns.
-        {% if var('company_history_pass_through_columns') %}
+        {% if var('intercom__company_history_pass_through_columns') %}
         ,
-        {{ var('company_history_pass_through_columns') | join (", ")}}
+        {{ var('intercom__company_history_pass_through_columns') | join (", ")}}
 
         {% endif %}    
     from base
@@ -51,9 +51,9 @@ final as (
         _fivetran_deleted
 
         --The below script allows for pass through columns.
-        {% if var('company_history_pass_through_columns') %}
+        {% if var('intercom__company_history_pass_through_columns') %}
         ,
-        {{ var('company_history_pass_through_columns') | join (", ")}}
+        {{ var('intercom__company_history_pass_through_columns') | join (", ")}}
 
         {% endif %}
     from fields
