@@ -24,7 +24,7 @@ Include in your `packages.yml`
 
 ```yaml
 packages:
-  - package: fivetran/zendesk_source
+  - package: fivetran/intercom_source
     version: [">=0.3.0", "<0.4.0"]
 ```
 
