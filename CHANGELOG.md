@@ -8,7 +8,7 @@
   - Please note, if you are installing a version of `dbt_utils` in your `packages.yml` that is not in the range above then you will encounter a package dependency error.
 
 ## Under the Hood
-- Removed unecessary duplicate `company_id` field definition and test from `stg_intercom.yml`.
+- Removed unnecessary duplicate `company_id` field definition and test from `stg_intercom.yml`.
 
 # dbt_intercom_source v0.1.0 -> v0.3.0
 Refer to the relevant release notes on the Github repository for specific details for the previous releases. Thank you!
