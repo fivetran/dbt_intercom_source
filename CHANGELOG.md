@@ -7,5 +7,8 @@
 - Upgrades the package dependency to refer to the latest `dbt_fivetran_utils`. The latest `dbt_fivetran_utils` package also has a dependency on `dbt_utils` [">=0.8.0", "<0.9.0"].
   - Please note, if you are installing a version of `dbt_utils` in your `packages.yml` that is not in the range above then you will encounter a package dependency error.
 
+## Under the Hood
+- Removed unecessary duplicate `company_id` field definition and test from `stg_intercom.yml`.
+
 # dbt_intercom_source v0.1.0 -> v0.3.0
 Refer to the relevant release notes on the Github repository for specific details for the previous releases. Thank you!
