@@ -12,7 +12,7 @@ This package enriches your Fivetran data by doing the following:
 * Models staging tables, which will be used in our transform package
 
 ## Models
-This package contains staging models, designed to work simultaneously with our [Intercom modeling package](https://github.com/fivetran/dbt_intercom). The staging models name columns consistently across all packages:
+This package contains staging models, designed to work simultaneously with our [Intercom transform package](https://github.com/fivetran/dbt_intercom). The staging models name columns consistently across all packages:
 * Boolean fields are prefixed with `is_` or `has_`
 * Timestamps are appended with `_at`
 * ID primary keys are prefixed with the name of the table. For example, the admin table's ID column is renamed `admin_id`.
