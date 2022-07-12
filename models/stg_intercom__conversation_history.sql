@@ -28,12 +28,12 @@ final as (
     
     select 
         id as conversation_id,
-        created_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         assignee_id,
         assignee_type,
         conversation_rating_value,
         conversation_rating_remark,
-        first_contact_reply_created_at,
+        cast(first_contact_reply_created_at as {{ dbt_utils.type_timestamp() }}) as first_contact_reply_created_at,
         first_contact_reply_type,
         read as is_read,
         source_author_id,
@@ -42,7 +42,7 @@ final as (
         source_type,
         source_subject,
         state,
-        updated_at,
+        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
         waiting_since,
         snoozed_until,
         sla_name,

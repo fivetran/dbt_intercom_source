@@ -30,7 +30,7 @@ final as (
         id as admin_id,
         name,
         job_title,
-        _fivetran_deleted
+        _fivetran_deleted 
     from fields
 )
 

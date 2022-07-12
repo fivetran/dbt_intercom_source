@@ -32,10 +32,10 @@ final as (
         conversation_id,
         author_id,
         author_type,
-        created_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         assigned_to_id,
         assigned_to_type,
-        conversation_updated_at,
+        cast(conversation_updated_at as {{ dbt_utils.type_timestamp() }}) as conversation_updated_at,
         updated_at
     from fields
 )

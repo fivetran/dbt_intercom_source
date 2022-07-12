@@ -1,3 +1,10 @@
+# dbt_intercom_source v0.4.1
+## Features
+- 🎉 Postgres Compatibility 🎉 ([#18](https://github.com/fivetran/dbt_intercom_source/pull/18))
+
+## Under the Hood
+- Added `{{ dbt_utils.type_timestamp() }}` casting to timestamp fields for safe casting across warehouses. ([#18](https://github.com/fivetran/dbt_intercom_source/pull/18))
+
 # dbt_intercom_source v0.4.0
 🎉 dbt v1.0.0 Compatibility 🎉
 ## 🚨 Breaking Changes 🚨

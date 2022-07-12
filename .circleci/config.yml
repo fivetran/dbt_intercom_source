@@ -23,6 +23,17 @@ jobs:
             mkdir -p ~/.dbt
             cp integration_tests/ci/sample.profiles.yml ~/.dbt/profiles.yml
       - run:
+          name: "Run Tests - Postgres"
+          command: |
+            . venv/bin/activate
+            echo `pwd`
+            cd integration_tests
+            dbt deps
+            dbt seed --target postgres --full-refresh
+            dbt run --target postgres --full-refresh
+            dbt run --vars '{intercom__using_contact_company: false, intercom__using_company_tags: false, intercom__using_contact_tags: false, intercom__using_conversation_tags: false, intercom__using_team: false}' --target postgres
+            dbt test --target postgres
+      - run:
           name: "Run Tests - Redshift"
           command: |
             . venv/bin/activate
