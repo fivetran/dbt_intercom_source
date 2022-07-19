@@ -44,7 +44,7 @@ final as (
         state,
         cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
         cast(waiting_since as {{ dbt_utils.type_timestamp() }}) as waiting_since,
-        snoozed_until,
+        cast(snoozed_until as {{ dbt_utils.type_timestamp() }}) as snoozed_until,
         sla_name,
         sla_status
     from fields
