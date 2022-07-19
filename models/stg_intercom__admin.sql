@@ -27,7 +27,7 @@ fields as (
 final as (
     
     select 
-        id as admin_id,
+        cast(id as {{ dbt_utils.type_string() }}) as admin_id, 
         name,
         job_title,
         _fivetran_deleted 
