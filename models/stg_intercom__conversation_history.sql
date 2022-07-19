@@ -43,7 +43,7 @@ final as (
         source_subject,
         state,
         cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
-        waiting_since,
+        cast(waiting_since as {{ dbt_utils.type_timestamp() }}) as waiting_since,
         snoozed_until,
         sla_name,
         sla_status
