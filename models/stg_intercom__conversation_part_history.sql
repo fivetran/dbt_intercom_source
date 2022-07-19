@@ -36,7 +36,7 @@ final as (
         assigned_to_id,
         assigned_to_type,
         cast(conversation_updated_at as {{ dbt_utils.type_timestamp() }}) as conversation_updated_at,
-        updated_at
+cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
     from fields
 )
 
