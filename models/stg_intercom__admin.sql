@@ -31,7 +31,7 @@ final as (
         name,
         job_title,
         _fivetran_deleted 
-    from fields
+    from fields 
 )
 
 select * 
