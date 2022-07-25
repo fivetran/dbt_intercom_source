@@ -3,7 +3,7 @@
 - 🎉 Postgres Compatibility 🎉 ([#18](https://github.com/fivetran/dbt_intercom_source/pull/18))
 
 ## Under the Hood
-We have added the below feature enhancements to this package in PR #18:
+We have added the below feature enhancements to this package in PR #18 ([#18](https://github.com/fivetran/dbt_intercom_source/pull/18)):
 - Added `{{ dbt_utils.type_timestamp() }}` casting to timestamp fields for safe casting across warehouses. ([#18](https://github.com/fivetran/dbt_intercom_source/pull/18))
 - Added dbt_expectations packages to more easily setup more complex data validation tests.
 - Added not null tests for both author and assigned_to fields, conditional on author_type and assigned_to_type not being null.
