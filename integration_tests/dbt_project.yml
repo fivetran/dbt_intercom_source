@@ -1,5 +1,5 @@
 name: 'intercom_source_integration_tests'
-version: '0.3.0'
+version: '0.5.0'
 profile: 'integration_tests'
 config-version: 2
 
@@ -26,11 +26,11 @@ vars:
     team:                           "{{ ref('team_data') }}"
     
 seeds:
-    +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+    +quote_columns: "{{ true if target.type in ('redshift','postgres') else false }}"
     intercom_source_integration_tests:
         admin_data:
             +column_types:
-                id: "{{ 'varchar(100)'  if target.type == 'redshift' else 'string'}}"
+                id: "{{ 'varchar(100)' if target.type in ('redshift','postgres') else 'string' }}"
         company_history_data:
             +column_types:
                 created_at: timestamp
@@ -70,7 +70,7 @@ seeds:
             +column_types:
                 id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
                 conversation_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-                author_id: "{{ 'varchar(100)'  if target.type == 'redshift' else 'string'}}"
+                author_id: "{{ 'varchar(100)' if target.type in ('redshift','postgres') else 'string' }}"
                 created_at: timestamp
                 conversation_updated_at: timestamp
                 updated_at: timestamp
@@ -84,7 +84,7 @@ seeds:
                 id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         team_admin_data:
             +column_types:
-                admin_id: "{{ 'varchar(100)'  if target.type == 'redshift' else 'string'}}"
+                admin_id: "{{ 'varchar(100)'  if target.type in ('redshift','postgres') else 'string'}}"
                 team_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         team_data:
             +column_types:

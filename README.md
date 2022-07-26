@@ -25,7 +25,7 @@ Include in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/intercom_source
-    version: [">=0.4.0", "<0.5.0"]
+    version: [">=0.5.0", "<0.6.0"]
 ```
 
 ## Configuration
@@ -84,6 +84,9 @@ Additional contributions to this package are very welcome! Please create issues
 or open PRs against `main`. Check out 
 [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 
 on the best workflow for contributing to a package.
+
+## Database Support
+This package has been tested on BigQuery, Snowflake, Redshift, and Postgres.
 
 ## Resources:
 - Provide [feedback](https://www.surveymonkey.com/r/DQ7K7WW) on our existing dbt packages or what you'd like to see next
