@@ -1,16 +1,13 @@
 name: 'intercom_source'
-version: '0.5.0'
+version: '0.6.0'
 config-version: 2
-
-require-dbt-version: [">=1.0.0", "<2.0.0"]
-
+require-dbt-version: [">=1.2.0", "<2.0.0"]
 models:
   intercom_source:
     +schema: stg_intercom
     materialized: table
     tmp:
       materialized: view
-
 vars:
   intercom_source:
     admin: "{{ source('intercom','admin') }}"
@@ -26,18 +23,13 @@ vars:
     tag: "{{ source('intercom','tag') }}"
     team_admin: "{{ source('intercom','team_admin') }}"
     team: "{{ source('intercom','team') }}"
-
-    #Variables if your company utilizes the tags within your company, contact, and/or conversations.
     intercom__using_contact_company: true
     intercom__using_company_tags: true
     intercom__using_contact_tags: true
     intercom__using_conversation_tags: true
     intercom__using_team: true
-
-    #(Optional) Pass-through arrays.
     intercom__company_history_pass_through_columns: []
     intercom__contact_history_pass_through_columns: []
-
 clean-targets:
 - target
 - dbt_modules
