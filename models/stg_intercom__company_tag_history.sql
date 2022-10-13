@@ -30,7 +30,7 @@ final as (
     
     select 
         company_id,
-        cast(company_updated_at as {{ dbt_utils.type_timestamp() }}) as company_updated_at,
+        cast(company_updated_at as {{ dbt.type_timestamp() }}) as company_updated_at,
         tag_id,
         _fivetran_deleted
     from fields

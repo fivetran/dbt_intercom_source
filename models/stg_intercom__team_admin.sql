@@ -30,7 +30,7 @@ fields as (
 final as (
     
     select 
-        cast(admin_id as {{ dbt_utils.type_string() }}) as admin_id,
+        cast(admin_id as {{ dbt.type_string() }}) as admin_id,
         team_id,
         _fivetran_deleted
     from fields
