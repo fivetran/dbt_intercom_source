@@ -1,6 +1,6 @@
 <p align="center">
     <a alt="License"
-        href="https://github.com/fivetran/dbt_apple_search_ads_source/blob/main/LICENSE">
+        href="https://github.com/fivetran/dbt_intercom_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
         <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
@@ -10,48 +10,43 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Intercom (Source)
+# Intercom Source dbt Package ([Docs](https://fivetran.github.io/dbt_intercom_source/))
 
 > NOTE: Our Intercom [model](https://github.com/fivetran/dbt_intercom) and [source](https://github.com/fivetran/dbt_intercom_source) dbt packages only work with connectors that were [created in July 2020](https://fivetran.com/docs/applications/intercom/changelog) or later. If you created your connector before July 2020, you must set up a new Intercom connector to use these dbt packages.
 
-This package models Intercom data from [Fivetran's connector](https://fivetran.com/docs/applications/intercom). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/intercom#schemainformation).
+# 📣 What does this dbt package do?
+- Materializes [Intercom staging tables](https://fivetran.github.io/dbt_intercom_source/#!/overview/intercom_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/intercom#schemainformation). These staging tables clean, test, and prepare your Intercom data from [Fivetran's connector](https://fivetran.com/docs/applications/intercom) for analysis by doing the following:
+  - Names columns for consistency across all packages and for easier analysis
+  - Adds freshness tests to source data
+  - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
+- Generates a comprehensive data dictionary of your intercom data through the [dbt docs site](https://fivetran.github.io/dbt_intercom_source/).
+- These tables are designed to work simultaneously with our [Intercom transformation package](https://github.com/fivetran/dbt_intercom).
 
-This package enriches your Fivetran data by doing the following:
-
-* Adds descriptions to tables and columns that are synced using Fivetran
-* Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
-* Models staging tables, which will be used in our transform package
-
-## Models
-This package contains staging models, designed to work simultaneously with our [Intercom transform package](https://github.com/fivetran/dbt_intercom). The staging models name columns consistently across all packages:
-* Boolean fields are prefixed with `is_` or `has_`
-* Timestamps are appended with `_at`
-* ID primary keys are prefixed with the name of the table. For example, the admin table's ID column is renamed `admin_id`.
-
-## Installation Instructions
-Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
-
-Include in your `packages.yml`
-
+# 🎯 How do I use the dbt package?
+## Step 1: Prerequisites
+To use this dbt package, you must have the following:
+- At least one Fivetran Intercom connector syncing data into your destination. 
+- A **BigQuery**, **Snowflake**, **Redshift**, or **PostgreSQL** destination.
+## Step 2: Install the package
+Include the following intercom_source package version in your `packages.yml` file.
+> TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
 packages:
   - package: fivetran/intercom_source
     version: [">=0.6.0", "<0.7.0"]
 ```
-
-## Configuration
-By default, this package looks for your Intercom data in the `intercom` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Intercom data is, add the following configuration to your `dbt_project.yml` file:
+## Step 3: Define database and schema variables
+By default, this package runs using your destination and the `intercom` schema. If this is not where your Intercom data is (for example, if your Intercom schema is named `intercom_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
-# dbt_project.yml 
-
-...
-config-version: 2
-
 vars:
     intercom_database: your_database_name
     intercom_schema: your_schema_name
 ```
+## (Optional) Step 4: Additional configurations
+<details><summary>Expand for configurations</summary>
+
+### Passthrough Columns
 
 This package includes all source columns defined in the macros folder. If you want to include custom fields in this package, you can add more columns using our pass-through column variables.
 
@@ -64,7 +59,10 @@ vars:
   intercom__contact_history_pass_through_columns: [super_cool_contact_field]
 ```
 
-Additionally, this package includes Intercom's `company tag`, `contact tag`, `contact company`,`conversation tag`, `team` and `team admin` mapping tables. If you do not use these tables, add the configuration below to your `dbt_project.yml`. By default, these variables are set to `True`:
+### Disabling Models
+This package includes Intercom's `company tag`, `contact tag`, `contact company`,`conversation tag`, `team` and `team admin` mapping tables.
+
+It's possible that your connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, the package assumes that all variables are true. Add variables for only the tables you want to disable. 
 
 ```yml
 # dbt_project.yml
@@ -79,7 +77,7 @@ vars:
 ```
 
 ### Changing the Build Schema
-By default this package will build the Intercom staging models within a schema titled (<target_schema> + `_stg_intercom`) in your target database. If this is not where you would like your Intercom staging data to be written to, add the following configuration to your `dbt_project.yml` file:
+By default this package will build the Intercom staging models within a schema titled (`<target_schema>` + `_stg_intercom`) in your target database. If this is not where you would like your Intercom staging data to be written to, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -89,24 +87,37 @@ models:
     intercom_source:
       +schema: my_new_schema_name # leave blank for just the target_schema
 ```
+</details>
+
+## (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™
+<details><summary>Expand for more details</summary>
+
+Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core™ setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
+    
+# 🔍 Does this package have dependencies?
+This dbt package is dependent on the following dbt packages. Please be aware that these dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
+> IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
+```yml
+packages:
+    - package: fivetran/fivetran_utils
+      version: [">=0.4.0", "<0.5.0"]
+
+    - package: dbt-labs/dbt_utils
+      version: [">=1.0.0", "<2.0.0"]
+```
+
+</details>
+
+# 🙌 How is this package maintained and can I contribute?
+## Package Maintenance
+The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend that you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/intercom_source/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_intercom_source/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ## Contributions
-Additional contributions to this package are very welcome! Please create issues
-or open PRs against `main`. Check out 
-[this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 
-on the best workflow for contributing to a package.
+A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions! 
 
-## Database Support
-This package has been tested on BigQuery, Snowflake, Redshift, and Postgres.
+We highly encourage and welcome contributions to this package. Check out [this dbt Discourse article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) to learn how to contribute to a dbt package!
 
-## Resources:
-- Provide [feedback](https://www.surveymonkey.com/r/DQ7K7WW) on our existing dbt packages or what you'd like to see next
-- Find all of Fivetran's pre-built dbt packages in our [dbt hub](https://hub.getdbt.com/fivetran/)
-- Learn more about Fivetran [in the Fivetran docs](https://fivetran.com/docs)
-- Learn how to orchestrate your models with [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt)
-- Check out [Fivetran's blog](https://fivetran.com/blog)
-- Learn more about dbt [in the dbt docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the dbt blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+# 🏪 Are there any resources available?
+- If you have questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/fivetran/dbt_intercom_source/issues/new/choose) section to find the right avenue of support for you.
+- If you would like to provide feedback to the dbt package team at Fivetran or would like to request a new dbt package, fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
+- Have questions or want to just say hi? Book a time during our office hours [on Calendly](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) or email us at solutions@fivetran.com.
