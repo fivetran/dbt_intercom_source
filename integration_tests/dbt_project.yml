@@ -8,6 +8,7 @@ models:
     tmp:
       materialized: view
 vars:
+  intercom_schema: intercom_source_integration_tests
   intercom_admin_identifier: "admin_data"
   intercom_company_history_identifier: "company_history_data"
   intercom_company_tag_history_identifier: "company_tag_history_data"
@@ -86,6 +87,4 @@ seeds:
     team_data:
       +column_types:
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-clean-targets:
-- target
-- dbt_modules
+

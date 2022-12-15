@@ -104,6 +104,9 @@ packages:
 
     - package: dbt-labs/dbt_utils
       version: [">=1.0.0", "<2.0.0"]
+
+    - package: calogica/dbt_expectations
+      version: [">=0.8.0", "<0.9.0"]
 ```
 ### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
