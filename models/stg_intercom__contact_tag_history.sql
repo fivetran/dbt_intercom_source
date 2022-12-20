@@ -31,7 +31,7 @@ final as (
     
     select 
         contact_id,
-        cast(contact_updated_at as {{ dbt_utils.type_timestamp() }}) as contact_updated_at,
+        cast(contact_updated_at as {{ dbt.type_timestamp() }}) as contact_updated_at,
         tag_id
     from fields
 )

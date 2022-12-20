@@ -36,16 +36,16 @@ final as (
     select 
         id as contact_id,
         admin_id,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
-        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
-        cast(signed_up_at as {{ dbt_utils.type_timestamp() }}) as signed_up_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
+        cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at,
+        cast(signed_up_at as {{ dbt.type_timestamp() }}) as signed_up_at,
         name as contact_name, 
         role as contact_role,
         email as contact_email,
-        cast(last_replied_at as {{ dbt_utils.type_timestamp() }}) as last_replied_at,
-        cast(last_email_clicked_at as {{ dbt_utils.type_timestamp() }}) as last_email_clicked_at,
-        cast(last_email_opened_at as {{ dbt_utils.type_timestamp() }}) as last_email_opened_at,
-        cast(last_contacted_at as {{ dbt_utils.type_timestamp() }}) as last_contacted_at,
+        cast(last_replied_at as {{ dbt.type_timestamp() }}) as last_replied_at,
+        cast(last_email_clicked_at as {{ dbt.type_timestamp() }}) as last_email_clicked_at,
+        cast(last_email_opened_at as {{ dbt.type_timestamp() }}) as last_email_opened_at,
+        cast(last_contacted_at as {{ dbt.type_timestamp() }}) as last_contacted_at,
         unsubscribed_from_emails as is_unsubscribed_from_emails
 
         --The below script allows for pass through columns.
