@@ -4,6 +4,8 @@
 - Updated staging for sources `company_history` and `contact_history` to utilize passthrough column macros from the fivetran/fivetran_utils package. 
 
 ## 🔧 Fixes 🔧
+- Removed the `assigned_to_id` null test from `stg_intercom__conversation_part_history`. This test does not apply to instances where a conversation is not assigned and `assigned_to_id` would accurately be null.
+
 # dbt_intercom_source v0.6.0
 
 ## 🚨 Breaking Changes 🚨:
