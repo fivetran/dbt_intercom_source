@@ -53,12 +53,9 @@ vars:
 
 ### Passthrough Columns
 
-This package includes all source columns defined in the macros folder. If you want to include custom fields in this package, you can add more columns using our pass-through column variables.
+This package includes all source columns defined in the macros folder. If you want to include custom fields in this package, you can add more columns using our pass-through column variables to your `dbt_project.yml` file:
 
 ```yml
-# dbt_project.yml
-
-...
 vars:
   intercom__company_history_pass_through_columns: [company_custom_field_1, company_custom_field_2]
   intercom__contact_history_pass_through_columns: [super_cool_contact_field]
