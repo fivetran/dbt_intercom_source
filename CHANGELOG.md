@@ -1,6 +1,9 @@
 # dbt_intercom_source v0.6.1
-## 🌟 Features 🌟
+## ⭐ Features ⭐
+- Added passthrough column capability for models depending on source table `conversation_history`.
+- Updated staging for sources `company_history` and `contact_history` to utilize passthrough column macros from the fivetran/fivetran_utils package. 
 
+## 🔧 Fixes 🔧
 # dbt_intercom_source v0.6.0
 
 ## 🚨 Breaking Changes 🚨:
