@@ -22,7 +22,6 @@ fields as (
             )
         }}
 
-        {% endif %}
     from base
 ),
 
