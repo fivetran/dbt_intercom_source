@@ -62,6 +62,7 @@ This package includes all source columns defined in the macros folder. If you wa
 vars:
   intercom__company_history_pass_through_columns: [company_custom_field_1, company_custom_field_2]
   intercom__contact_history_pass_through_columns: [super_cool_contact_field]
+  intercom__conversation_history_pass_through_columns: [another_custom_field, another_custom_field_2]
 ```
 
 ### Disabling Models
