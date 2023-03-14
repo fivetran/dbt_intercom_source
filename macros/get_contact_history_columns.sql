@@ -18,6 +18,8 @@
     {"name": "updated_at", "datatype": dbt.type_timestamp()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('intercom__contact_history_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

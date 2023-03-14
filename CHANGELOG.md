@@ -1,3 +1,6 @@
+# dbt_intercom_source v0.6.1
+## 🌟 Features 🌟
+
 # dbt_intercom_source v0.6.0
 
 ## 🚨 Breaking Changes 🚨:
