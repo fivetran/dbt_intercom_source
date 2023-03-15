@@ -1,6 +1,6 @@
 # dbt_intercom_source v0.6.1
 ## Feature Updates
-- Addition of the `body` field to the `stg_intercom__conversation_part_history` model. The addition of this field will help users understand the context of the conversation parts.
+- Addition of the `body` field to the `stg_intercom__conversation_part_history` model. The addition of this field will help users understand the context of the conversation parts. ([#23](https://github.com/fivetran/dbt_intercom_source/pull/23))
 
 # dbt_intercom_source v0.6.0
 
