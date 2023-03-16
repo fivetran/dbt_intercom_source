@@ -3,7 +3,7 @@
 - Added passthrough custom column capability for models depending on source table `conversation_history`. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
 - Updated [README](https://github.com/fivetran/dbt_intercom_source#passthrough-columns) for this new passthrough capability. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
 
-## Under the hood
+## 🚘 Under the hood 🚘
 - Updated staging for sources `company_history` and `contact_history` to utilize passthrough column macros from the fivetran/fivetran_utils package. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
 
 ## 🔧 Fixes 🔧
