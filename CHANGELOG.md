@@ -2,6 +2,7 @@
 ## ⭐ Features ⭐
 - Passthrough columns variables can now be configured with an alias and a transform. Refer to [Passthrough Columns](https://github.com/fivetran/dbt_intercom_source#passthrough-columns) of the README for more information. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
 - Added passthrough custom column capability for models depending on source table `conversation_history`. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
+- Addition of the `body` field to the `stg_intercom__conversation_part_history` model. The addition of this field will help users understand the context of the conversation parts. ([#23](https://github.com/fivetran/dbt_intercom_source/pull/23))
 
 ## 🚘 Under the hood 🚘
 - Updated staging for sources `company_history` and `contact_history` to utilize passthrough column macros from the fivetran/fivetran_utils package, which provides the configuration ability. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
