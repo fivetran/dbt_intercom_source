@@ -1,3 +1,14 @@
+# dbt_intercom_source v0.6.1
+## ⭐ Features ⭐
+- Passthrough columns variables can now be configured with an alias and a transform. Refer to [Passthrough Columns](https://github.com/fivetran/dbt_intercom_source#passthrough-columns) of the README for more information. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
+- Added passthrough custom column capability for models depending on source table `conversation_history`. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
+
+## 🚘 Under the hood 🚘
+- Updated staging for sources `company_history` and `contact_history` to utilize passthrough column macros from the fivetran/fivetran_utils package, which provides the configuration ability. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
+
+## 🔧 Fixes 🔧
+- Removed the `assigned_to_id` null test from `stg_intercom__conversation_part_history`. This test does not apply to instances where a conversation is not assigned, so `assigned_to_id` could accurately be null. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
+
 # dbt_intercom_source v0.6.0
 
 ## 🚨 Breaking Changes 🚨:

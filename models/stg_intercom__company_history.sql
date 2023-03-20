@@ -25,12 +25,6 @@ fields as (
             )
         }}
 
-        --The below script allows for pass through columns.
-        {% if var('intercom__company_history_pass_through_columns') %}
-        ,
-        {{ var('intercom__company_history_pass_through_columns') | join (", ")}}
-
-        {% endif %}    
     from base
 ),
 
@@ -51,11 +45,7 @@ final as (
         _fivetran_deleted
 
         --The below script allows for pass through columns.
-        {% if var('intercom__company_history_pass_through_columns') %}
-        ,
-        {{ var('intercom__company_history_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        {{ fivetran_utils.fill_pass_through_columns('intercom__company_history_pass_through_columns') }}
     from fields
 )
 
