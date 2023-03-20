@@ -218,6 +218,8 @@ sources:
             description: The time the parent conversation was last updated at.
           - name: updated_at
             description: The time the conversation part was last updated at.
+          - name: body
+            description: Optional field that contains the body of the conversation part. Typically only populated for comment and assignment part_types.
 
       - name: conversation_tag_history
         identifier: "{{ var('intercom_conversation_tag_history_identifier', 'conversation_tag_history') }}"
