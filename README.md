@@ -53,15 +53,21 @@ vars:
 
 ### Passthrough Columns
 
-This package includes all source columns defined in the macros folder. If you want to include custom fields in this package, you can add more columns using our pass-through column variables.
+This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables in your root `dbt_project.yml`.
 
 ```yml
-# dbt_project.yml
-
-...
 vars:
-  intercom__company_history_pass_through_columns: [company_custom_field_1, company_custom_field_2]
-  intercom__contact_history_pass_through_columns: [super_cool_contact_field]
+  intercom__company_history_pass_through_columns: 
+    - name: company_history_custom_field
+      alias: new_name_for_this_field
+      transform_sql:  "cast(new_name_for_this_field as int64)"
+    - name:           "this_other_field"
+      transform_sql:  "cast(this_other_field as string)"
+    - name: custom_monthly_spend
+    - name: custom_paid_subscriber
+  # a similar pattern can be applied to the rest of the following variables.
+  intercom__contact_history_pass_through_columns:
+  intercom__conversation_history_pass_through_columns:
 ```
 
 ### Disabling Models
