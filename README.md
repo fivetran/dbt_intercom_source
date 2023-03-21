@@ -60,9 +60,9 @@ vars:
   intercom__company_history_pass_through_columns: 
     - name: company_history_custom_field
       alias: new_name_for_this_field
-      transform_sql:  "cast(new_name_for_this_field as int64)"
-    - name:           "this_other_field"
-      transform_sql:  "cast(this_other_field as string)"
+      transform_sql: "cast(new_name_for_this_field as int64)"
+    - name: this_other_field
+      transform_sql: "cast(this_other_field as string)"
     - name: custom_monthly_spend
     - name: custom_paid_subscriber
   # a similar pattern can be applied to the rest of the following variables.
