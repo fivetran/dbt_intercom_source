@@ -21,13 +21,7 @@ fields as (
                 staging_columns=get_contact_history_columns()
             )
         }}
-        
-        --The below script allows for pass through columns.
-        {% if var('intercom__contact_history_pass_through_columns') %}
-        ,
-        {{ var('intercom__contact_history_pass_through_columns') | join (", ")}}
 
-        {% endif %}
     from base
 ),
 
@@ -49,11 +43,7 @@ final as (
         unsubscribed_from_emails as is_unsubscribed_from_emails
 
         --The below script allows for pass through columns.
-        {% if var('intercom__contact_history_pass_through_columns') %}
-        ,
-        {{ var('intercom__contact_history_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        {{ fivetran_utils.fill_pass_through_columns('intercom__contact_history_pass_through_columns') }}
     from fields
 )
 

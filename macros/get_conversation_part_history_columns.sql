@@ -5,6 +5,7 @@
     {"name": "assigned_to_id", "datatype": dbt.type_int()},
     {"name": "assigned_to_type", "datatype": dbt.type_string()},
     {"name": "author_id", "datatype": dbt.type_string()},
+    {"name": "body", "datatype": dbt.type_string()},
     {"name": "author_type", "datatype": dbt.type_string()},
     {"name": "conversation_id", "datatype": dbt.type_int()},
     {"name": "conversation_updated_at", "datatype": dbt.type_timestamp()},

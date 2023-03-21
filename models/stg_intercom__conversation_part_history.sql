@@ -29,6 +29,7 @@ final as (
     select 
         id as conversation_part_id,
         part_type,
+        body,
         conversation_id,
         author_id,
         author_type,

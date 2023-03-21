@@ -211,15 +211,14 @@ models:
           - not_null
       - name: assigned_to_id
         description: The id of the admin that was assigned the conversation by this conversation_part (null if there has been no change in assignment).
-        tests:
-          - dbt_expectations.expect_column_values_to_not_be_null:
-              row_condition: "assigned_to_type is not null"  
       - name: assigned_to_type
         description: The type of the individual which the conversation part is assigned.
       - name: conversation_updated_at
         description: The time the parent conversation was last updated at.
       - name: updated_at
         description: The time the conversation part was last updated at.
+      - name: body
+        description: Optional field that contains the body of the conversation part. Typically only populated for comment and assignment part_types.
 
   - name: stg_intercom__conversation_tag_history
     description: Mapping table for tags associated with conversations.

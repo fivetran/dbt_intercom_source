@@ -47,6 +47,9 @@ final as (
         cast(snoozed_until as {{ dbt.type_timestamp() }}) as snoozed_until,
         sla_name,
         sla_status
+
+        --The below script allows for pass through columns.
+        {{ fivetran_utils.fill_pass_through_columns('intercom__conversation_history_pass_through_columns') }}
     from fields
 )
 
