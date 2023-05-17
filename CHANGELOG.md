@@ -1,3 +1,7 @@
+# dbt_intercom v0.X.X
+## 🎉 Feature Update 🎉
+- Databricks compatibility! ([#__](https://github.com/fivetran/dbt_mixpanel/pull/##))
+
 # dbt_intercom_source v0.UPDATE.UPDATE
 
  ## Under the Hood:
@@ -82,3 +86,4 @@ We have added the below feature enhancements to this package in PR #18  ([#18](h
 
 # dbt_intercom_source v0.1.0 -> v0.3.0
 Refer to the relevant release notes on the Github repository for specific details for the previous releases. Thank you!
+
