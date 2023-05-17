@@ -1,9 +1,11 @@
-# dbt_intercom_source v0.UPDATE.UPDATE
+# dbt_intercom_source v0.7.0
+## 🎉 Feature Update 🎉
+- Databricks compatibility! ([#28](https://github.com/fivetran/dbt_intercom_source/pull/28))
 
- ## Under the Hood:
+## 🚘 Under the Hood 🚘
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([#25](https://github.com/fivetran/dbt_intercom_source/pull/25))
+- Updated the pull request [templates](/.github). ([#25](https://github.com/fivetran/dbt_intercom_source/pull/25))
 
-- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
-- Updated the pull request [templates](/.github).
 # dbt_intercom_source v0.6.1
 ## ⭐ Features ⭐
 - Passthrough columns variables can now be configured with an alias and a transform. Refer to [Passthrough Columns](https://github.com/fivetran/dbt_intercom_source#passthrough-columns) of the README for more information. ([#22](https://github.com/fivetran/dbt_intercom_source/pull/22))
