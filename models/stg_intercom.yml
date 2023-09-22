@@ -23,7 +23,6 @@ models:
         description: The unique identifier representing the Intercom defined company.
         tests:
           - not_null
-          - unique
       - name: company_name
         description: The name of the company.
       - name: website
