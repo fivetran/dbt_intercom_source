@@ -1,3 +1,8 @@
+# dbt_intercom_source v0.7.1
+
+## Contributors
+- [@matthew-LL](https://github.com/matthew-LL) ([PR #31](https://github.com/fivetran/dbt_intercom_source/pull/31))
+
 # dbt_intercom_source v0.7.0
 ## 🎉 Feature Update 🎉
 - Databricks compatibility! ([#28](https://github.com/fivetran/dbt_intercom_source/pull/28))
