@@ -1,7 +1,7 @@
 # dbt_intercom_source v0.7.1
 
 ## 🐛 Bugfix
-- Remove erroneous uniqueness test from `company_id` in model `stg_intercom__company_history` since `company_id` could have associated multiple records.
+- Remove erroneous uniqueness test from `company_id` in model `stg_intercom__company_history` since `company_id` could have multiple associated records.
 
 ## Contributors
 - [@matthew-LL](https://github.com/matthew-LL) ([PR #31](https://github.com/fivetran/dbt_intercom_source/pull/31))
