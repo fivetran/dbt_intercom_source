@@ -1,3 +1,11 @@
+# dbt_intercom_source v0.7.1
+[PR #31](https://github.com/fivetran/dbt_intercom_source/pull/31) includes the following updates:
+## 🐛 Bugfix
+- Remove erroneous uniqueness test from `company_id` in model `stg_intercom__company_history` since `company_id` could have multiple associated records.
+
+## Contributors
+- [@matthew-LL](https://github.com/matthew-LL) ([PR #31](https://github.com/fivetran/dbt_intercom_source/pull/31))
+
 # dbt_intercom_source v0.7.0
 ## 🎉 Feature Update 🎉
 - Databricks compatibility! ([#28](https://github.com/fivetran/dbt_intercom_source/pull/28))
