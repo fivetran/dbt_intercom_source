@@ -199,9 +199,6 @@ models:
         description: The id representing the parent conversation.
       - name: author_id
         description: The id representing the individual that sent the message.
-        tests:
-          - dbt_expectations.expect_column_values_to_not_be_null:
-              row_condition: "author_type is not null"  
       - name: author_type
         description: The type of individual that sent the message (user, admin, or bot).
       - name: created_at

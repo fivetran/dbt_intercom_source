@@ -1,3 +1,11 @@
+# dbt_intercom_source v0.8.0
+
+## Test Updates
+- Removal of the author is not null test within the `stg_intercom__conversation_history` model.
+
+## Dependency Updates
+- Removal of the dbt_expectations dependency.
+
 # dbt_intercom_source v0.7.1
 [PR #31](https://github.com/fivetran/dbt_intercom_source/pull/31) includes the following updates:
 ## 🐛 Bugfix
