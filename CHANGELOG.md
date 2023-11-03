@@ -1,7 +1,9 @@
 # dbt_intercom_source v0.8.0
 
+[PR #36](https://github.com/fivetran/dbt_intercom_source/pull/36) includes the following updates:
 ## Test Updates
-- Removal of the author is not null test within the `stg_intercom__conversation_history` model.
+- Removal of the "author is not null" test within the `stg_intercom__conversation_history` model.
+- Updated the source freshness test enablement/disablement to leverage the dbt-core `config: enabled:` architecture.
 
 ## Dependency Updates
 - Removal of the dbt_expectations dependency.

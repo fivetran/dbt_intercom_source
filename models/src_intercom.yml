@@ -29,8 +29,8 @@ sources:
         identifier: "{{ var('intercom_company_history_identifier', 'company_history') }}"
         loaded_at_field: _fivetran_synced
         description: Table containing historical information about companies which have been created within Intercom.
-        meta:
-          is_enabled: "{{ var('intercom__using_contact_company', true) }}"
+        config:
+          enabled: "{{ var('intercom__using_contact_company', true) }}"
         columns:
           - name: id
             description: The unique identifier representing the Intercom defined company.
@@ -63,8 +63,8 @@ sources:
         identifier: "{{ var('intercom_company_tag_history_identifier', 'company_tag_history') }}"
         loaded_at_field: _fivetran_synced
         description: Mapping table for tags associated with companies.
-        meta:
-          is_enabled: "{{ var('intercom__using_company_tags', true) }}"
+        config:
+          enabled: "{{ var('intercom__using_company_tags', true) }}"
         columns: 
           - name: company_id
             description: The unique identifier related to the company.
@@ -79,8 +79,8 @@ sources:
         identifier: "{{ var('intercom_contact_company_history_identifier', 'contact_company_history') }}"
         loaded_at_field: _fivetran_synced
         description: Mapping table for contacts associated with companies.
-        meta:
-          is_enabled: "{{ var('intercom__using_contact_company', true) }}"
+        config:
+          enabled: "{{ var('intercom__using_contact_company', true) }}"
         columns:
           - name: company_id
             description: The unique identifier related to the company.
@@ -125,8 +125,8 @@ sources:
         identifier: "{{ var('intercom_contact_tag_history_identifier', 'contact_tag_history') }}"
         loaded_at_field: _fivetran_synced
         description: Mapping table for tags associated with contacts.
-        meta:
-          is_enabled: "{{ var('intercom__using_contact_tags', true) }}"
+        config:
+          enabled: "{{ var('intercom__using_contact_tags', true) }}"
         columns: 
           - name: contact_id
             description: The unique identifier related to the contact.
@@ -225,8 +225,8 @@ sources:
         identifier: "{{ var('intercom_conversation_tag_history_identifier', 'conversation_tag_history') }}"
         loaded_at_field: _fivetran_synced
         description: Mapping table for tags associated with conversations.
-        meta:
-          is_enabled: "{{ var('intercom__using_conversation_tags', true) }}"
+        config:
+          enabled: "{{ var('intercom__using_conversation_tags', true) }}"
         columns: 
           - name: conversation_id
             description: The unique identifier related to the conversation.
@@ -249,8 +249,8 @@ sources:
         identifier: "{{ var('intercom_team_admin_identifier', 'team_admin') }}"
         loaded_at_field: _fivetran_synced
         description: Mapping table for admins associated with teams.
-        meta:
-          is_enabled: "{{ var('intercom__using_team', true) }}"
+        config:
+          enabled: "{{ var('intercom__using_team', true) }}"
         columns:  
           - name: team_id
             description: The unique identifier of the team.
@@ -263,8 +263,8 @@ sources:
         identifier: "{{ var('intercom_team_identifier', 'team') }}"
         loaded_at_field: _fivetran_synced
         description: Table containing teams which are made up of groups of admin in Intercom.
-        meta:
-          is_enabled: "{{ var('intercom__using_team', true) }}"
+        config:
+          enabled: "{{ var('intercom__using_team', true) }}"
         columns:  
           - name: id
             description: The unique identifier of the team.
