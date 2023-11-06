@@ -2,7 +2,7 @@
 
 [PR #36](https://github.com/fivetran/dbt_intercom_source/pull/36) includes the following updates:
 ## 🚨 Breaking Changes 🚨
-- In [October 2023 the Intercom API upgraded from 2.9 to 2.10](https://fivetran.com/docs/applications/intercom/changelog#october2023) which resulted in the the connector schema receiving updates. These updates have downstream impacts on the data models within this package. The following changes are a result of the Intercom API and connector upgrades:
+- In [October 2023 the Intercom API upgraded from 2.9 to 2.10](https://fivetran.com/docs/applications/intercom/changelog#october2023) which resulted in the connector schema receiving updates. These updates have downstream impacts on the data models within this package. The following changes are a result of the Intercom API and connector upgrades:
   - The `_fivetran_deleted` column within the `*_history` staging models have been removed as they were deprecated in the connector.
 
 ## Feature Updates
