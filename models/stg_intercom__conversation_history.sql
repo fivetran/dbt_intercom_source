@@ -46,7 +46,10 @@ final as (
         cast(waiting_since as {{ dbt.type_timestamp() }}) as waiting_since,
         cast(snoozed_until as {{ dbt.type_timestamp() }}) as snoozed_until,
         sla_name,
-        sla_status
+        sla_status,
+        _fivetran_active,
+        _fivetran_start,
+        _fivetran_end
 
         --The below script allows for pass through columns.
         {{ fivetran_utils.fill_pass_through_columns('intercom__conversation_history_pass_through_columns') }}

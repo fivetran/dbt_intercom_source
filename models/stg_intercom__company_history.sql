@@ -42,7 +42,9 @@ final as (
         monthly_spend,
         plan_id,
         plan_name,
-        _fivetran_deleted
+        _fivetran_active,
+        _fivetran_start,
+        _fivetran_end
 
         --The below script allows for pass through columns.
         {{ fivetran_utils.fill_pass_through_columns('intercom__company_history_pass_through_columns') }}
@@ -51,4 +53,4 @@ final as (
 
 select * 
 from final
-where not coalesce(_fivetran_deleted, false)
+where coalesce(_fivetran_active, true)

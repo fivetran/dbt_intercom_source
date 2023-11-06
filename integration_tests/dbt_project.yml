@@ -8,6 +8,7 @@ models:
     tmp:
       materialized: view
 vars:
+  intercom__using_team: false
   intercom_schema: intercom_source_integration_tests
   intercom_admin_identifier: "admin_data"
   intercom_company_history_identifier: "company_history_data"
@@ -26,6 +27,11 @@ vars:
 seeds:
   +quote_columns: "{{ true if target.type in ('redshift','postgres') else false }}"
   intercom_source_integration_tests:
+    +column_types: 
+      _fivetran_synced: timestamp
+      _fivetran_start: timestamp
+      _fivetran_end: timestamp
+      _fivetran_active: boolean
     admin_data:
       +column_types:
         id: "{{ 'varchar(100)' if target.type in ('redshift','postgres') else 'string' }}"

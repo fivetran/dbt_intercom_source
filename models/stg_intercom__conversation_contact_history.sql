@@ -29,7 +29,10 @@ final as (
     select 
         contact_id,
         conversation_id,
-        cast(conversation_updated_at as {{ dbt.type_timestamp() }}) as conversation_updated_at  
+        cast(conversation_updated_at as {{ dbt.type_timestamp() }}) as conversation_updated_at,
+        _fivetran_active,
+        _fivetran_start,
+        _fivetran_end
     from fields
 )
 

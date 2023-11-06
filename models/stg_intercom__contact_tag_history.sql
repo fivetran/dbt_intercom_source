@@ -32,7 +32,10 @@ final as (
     select 
         contact_id,
         cast(contact_updated_at as {{ dbt.type_timestamp() }}) as contact_updated_at,
-        tag_id
+        tag_id,
+        _fivetran_active,
+        _fivetran_start,
+        _fivetran_end
     from fields
 )
 

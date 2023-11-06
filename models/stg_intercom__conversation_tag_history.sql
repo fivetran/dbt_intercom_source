@@ -31,7 +31,10 @@ final as (
     
     select 
         conversation_id,
-        tag_id
+        tag_id,
+        _fivetran_active,
+        _fivetran_start,
+        _fivetran_end
     from fields
 )
 

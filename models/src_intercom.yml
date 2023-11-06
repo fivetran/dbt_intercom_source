@@ -56,8 +56,12 @@ sources:
             description: Unique identifier representing the company plan.
           - name: plan_name
             description: The name of the plan you have associated with the company.
-          - name: _fivetran_deleted
-            description: Boolean indicating whether the contact is deleted.
+          - name: _fivetran_active
+            description: Boolean to identify an active record.
+          - name: _fivetran_start
+            description: Timestamp to record the time that a record is ingested by Fivetran. This value may not be identical to the time the record was created in the source system.
+          - name: _fivetran_end
+            description: Timestamp to record the time when a record became inactive in the source system.
 
       - name: company_tag_history
         identifier: "{{ var('intercom_company_tag_history_identifier', 'company_tag_history') }}"
@@ -72,8 +76,12 @@ sources:
             description: The date the company was last updated at.
           - name: tag_id
             description: The unique identifier related to the tag.
-          - name: _fivetran_deleted
-            description: Boolean indicating whether the contact is deleted.
+          - name: _fivetran_active
+            description: Boolean to identify an active record.
+          - name: _fivetran_start
+            description: Timestamp to record the time that a record is ingested by Fivetran. This value may not be identical to the time the record was created in the source system.
+          - name: _fivetran_end
+            description: Timestamp to record the time when a record became inactive in the source system.
 
       - name: contact_company_history
         identifier: "{{ var('intercom_contact_company_history_identifier', 'contact_company_history') }}"
@@ -88,6 +96,12 @@ sources:
             description: The unique identifier related to the contact.
           - name: contact_updated_at
             description: The time the contact was last updated at.
+          - name: _fivetran_active
+            description: Boolean to identify an active record.
+          - name: _fivetran_start
+            description: Timestamp to record the time that a record is ingested by Fivetran. This value may not be identical to the time the record was created in the source system.
+          - name: _fivetran_end
+            description: Timestamp to record the time when a record became inactive in the source system.
 
       - name: contact_history
         identifier: "{{ var('intercom_contact_history_identifier', 'contact_history') }}"
@@ -118,8 +132,12 @@ sources:
             description: The time when a contact last opened an email.
           - name: unsubscribed_from_emails
             description: Boolean indicating whether the contact has unsubscribed from emails.
-          - name: _fivetran_deleted
-            description: Boolean indicating whether the contact is deleted.
+          - name: _fivetran_active
+            description: Boolean to identify an active record.
+          - name: _fivetran_start
+            description: Timestamp to record the time that a record is ingested by Fivetran. This value may not be identical to the time the record was created in the source system.
+          - name: _fivetran_end
+            description: Timestamp to record the time when a record became inactive in the source system.
 
       - name: contact_tag_history
         identifier: "{{ var('intercom_contact_tag_history_identifier', 'contact_tag_history') }}"
@@ -134,6 +152,12 @@ sources:
             description: The date the contact was last updated at.
           - name: tag_id
             description: The unique identifier related to the tag.
+          - name: _fivetran_active
+            description: Boolean to identify an active record.
+          - name: _fivetran_start
+            description: Timestamp to record the time that a record is ingested by Fivetran. This value may not be identical to the time the record was created in the source system.
+          - name: _fivetran_end
+            description: Timestamp to record the time when a record became inactive in the source system.
 
       - name: conversation_contact_history
         identifier: "{{ var('intercom_conversation_contact_history_identifier', 'conversation_contact_history') }}"
@@ -146,6 +170,12 @@ sources:
             description: The unique identifier for the conversation.
           - name: conversation_updated_at
             description: Time the conversation was last updated at.
+          - name: _fivetran_active
+            description: Boolean to identify an active record.
+          - name: _fivetran_start
+            description: Timestamp to record the time that a record is ingested by Fivetran. This value may not be identical to the time the record was created in the source system.
+          - name: _fivetran_end
+            description: Timestamp to record the time when a record became inactive in the source system.
 
       - name: conversation_history
         identifier: "{{ var('intercom_conversation_history_identifier', 'conversation_history') }}"
@@ -192,6 +222,12 @@ sources:
             description: The name of the SLA as given by the teammate when it was created.
           - name: sla_status
             description: One of “hit”, ”missed”, or “cancelled”.
+          - name: _fivetran_active
+            description: Boolean to identify an active record.
+          - name: _fivetran_start
+            description: Timestamp to record the time that a record is ingested by Fivetran. This value may not be identical to the time the record was created in the source system.
+          - name: _fivetran_end
+            description: Timestamp to record the time when a record became inactive in the source system.
 
       - name: conversation_part_history
         identifier: "{{ var('intercom_conversation_part_history_identifier', 'conversation_part_history') }}"
@@ -220,6 +256,12 @@ sources:
             description: The time the conversation part was last updated at.
           - name: body
             description: Optional field that contains the body of the conversation part. Typically only populated for comment and assignment part_types.
+          - name: _fivetran_active
+            description: Boolean to identify an active record.
+          - name: _fivetran_start
+            description: Timestamp to record the time that a record is ingested by Fivetran. This value may not be identical to the time the record was created in the source system.
+          - name: _fivetran_end
+            description: Timestamp to record the time when a record became inactive in the source system.
 
       - name: conversation_tag_history
         identifier: "{{ var('intercom_conversation_tag_history_identifier', 'conversation_tag_history') }}"
@@ -232,6 +274,12 @@ sources:
             description: The unique identifier related to the conversation.
           - name: tag_id
             description: The unique identifier related to the tag.
+          - name: _fivetran_active
+            description: Boolean to identify an active record.
+          - name: _fivetran_start
+            description: Timestamp to record the time that a record is ingested by Fivetran. This value may not be identical to the time the record was created in the source system.
+          - name: _fivetran_end
+            description: Timestamp to record the time when a record became inactive in the source system.
 
       - name: tag
         identifier: "{{ var('intercom_tag_identifier', 'tag') }}"
