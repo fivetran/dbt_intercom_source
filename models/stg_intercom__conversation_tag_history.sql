@@ -33,8 +33,8 @@ final as (
         conversation_id,
         tag_id,
         _fivetran_active,
-        _fivetran_start,
-        _fivetran_end
+        cast(_fivetran_start as {{ dbt.type_timestamp() }}) as _fivetran_start,
+        cast(_fivetran_end as {{ dbt.type_timestamp() }}) as _fivetran_end
     from fields
 )
 

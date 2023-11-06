@@ -42,8 +42,8 @@ final as (
         cast(last_contacted_at as {{ dbt.type_timestamp() }}) as last_contacted_at,
         unsubscribed_from_emails as is_unsubscribed_from_emails,
         _fivetran_active,
-        _fivetran_start,
-        _fivetran_end
+        cast(_fivetran_start as {{ dbt.type_timestamp() }}) as _fivetran_start,
+        cast(_fivetran_end as {{ dbt.type_timestamp() }}) as _fivetran_end
 
         --The below script allows for pass through columns.
         {{ fivetran_utils.fill_pass_through_columns('intercom__contact_history_pass_through_columns') }}
