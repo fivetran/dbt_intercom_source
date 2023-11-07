@@ -38,7 +38,7 @@ Include the following intercom_source package version in your `packages.yml` fil
 ```yaml
 packages:
   - package: fivetran/intercom_source
-    version: [">=0.7.0", "<0.8.0"]
+    version: [">=0.8.0", "<0.9.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `intercom` schema. If this is not where your Intercom data is (for example, if your Intercom schema is named `intercom_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -115,9 +115,6 @@ packages:
 
     - package: dbt-labs/dbt_utils
       version: [">=1.0.0", "<2.0.0"]
-
-    - package: calogica/dbt_expectations
-      version: [">=0.8.0", "<0.9.0"]
 ```
 ### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:

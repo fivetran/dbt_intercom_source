@@ -32,10 +32,12 @@ final as (
         company_id,
         cast(company_updated_at as {{ dbt.type_timestamp() }}) as company_updated_at,
         tag_id,
-        _fivetran_deleted
+        _fivetran_active,
+        cast(_fivetran_start as {{ dbt.type_timestamp() }}) as _fivetran_start,
+        cast(_fivetran_end as {{ dbt.type_timestamp() }}) as _fivetran_end
     from fields
 )
 
 select * 
 from final
-where not coalesce(_fivetran_deleted, false)
+where coalesce(_fivetran_active, true)

@@ -1,7 +1,9 @@
 {% macro get_company_history_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_deleted", "datatype": "boolean"},
+    {"name": "_fivetran_active", "datatype": "boolean"},
+    {"name": "_fivetran_start", "datatype": dbt.type_timestamp()},
+    {"name": "_fivetran_end", "datatype": dbt.type_timestamp()},
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "created_at", "datatype": dbt.type_timestamp()},
     {"name": "id", "datatype": dbt.type_string()},

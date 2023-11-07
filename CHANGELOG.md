@@ -1,3 +1,20 @@
+# dbt_intercom_source v0.8.0
+
+[PR #36](https://github.com/fivetran/dbt_intercom_source/pull/36) includes the following updates:
+## 🚨 Breaking Changes 🚨
+- In [July 2023 the Intercom API upgraded from 2.9 to 2.10](https://fivetran.com/docs/applications/intercom/changelog#july2023) which resulted in the connector schema receiving updates. These updates have downstream impacts on the data models within this package. The following changes are a result of the Intercom API and connector upgrades:
+  - The `_fivetran_deleted` column within the `*_history` staging models have been removed as they were deprecated in the connector.
+
+## Feature Updates
+- The `_fivetran_active`, `_fivetran_start`, and `_fivetran_end` fields have been added to all `*_history` staging models to address the removal of the `_fivetran_deleted` columns and properly track historical records.
+
+## Test Updates
+- Removal of the "author is not null" test within the `stg_intercom__conversation_history` model.
+- Updated the source freshness test enablement/disablement to leverage the dbt-core `config: enabled:` architecture.
+
+## Dependency Updates
+- Removal of the dbt_expectations dependency.
+
 # dbt_intercom_source v0.7.1
 [PR #31](https://github.com/fivetran/dbt_intercom_source/pull/31) includes the following updates:
 ## 🐛 Bugfix

@@ -31,7 +31,10 @@ final as (
     select 
         company_id,
         contact_id,
-        cast(contact_updated_at as {{ dbt.type_timestamp() }}) as contact_updated_at
+        cast(contact_updated_at as {{ dbt.type_timestamp() }}) as contact_updated_at,
+        _fivetran_active,
+        cast(_fivetran_start as {{ dbt.type_timestamp() }}) as _fivetran_start,
+        cast(_fivetran_end as {{ dbt.type_timestamp() }}) as _fivetran_end
     from fields
 )
 

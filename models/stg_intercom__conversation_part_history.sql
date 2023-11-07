@@ -37,7 +37,10 @@ final as (
         assigned_to_id,
         assigned_to_type,
         cast(conversation_updated_at as {{ dbt.type_timestamp() }}) as conversation_updated_at,
-        cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at
+        cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at,
+        _fivetran_active,
+        cast(_fivetran_start as {{ dbt.type_timestamp() }}) as _fivetran_start,
+        cast(_fivetran_end as {{ dbt.type_timestamp() }}) as _fivetran_end
     from fields
 )
 
