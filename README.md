@@ -15,7 +15,7 @@
 
 # Intercom Source dbt Package ([Docs](https://fivetran.github.io/dbt_intercom_source/))
 
-> NOTE: Our Intercom [model](https://github.com/fivetran/dbt_intercom) and [source](https://github.com/fivetran/dbt_intercom_source) dbt packages only work with connectors that were [created in July 2020](https://fivetran.com/docs/applications/intercom/changelog) or later. If you created your connector before July 2020, you must set up a new Intercom connector to use these dbt packages.
+> NOTE: Our Intercom [model](https://github.com/fivetran/dbt_intercom) and [source](https://github.com/fivetran/dbt_intercom_source) dbt packages only work with connections that were [created in July 2020](https://fivetran.com/docs/applications/intercom/changelog) or later. If you created your connector before July 2020, you must set up a new Intercom connector to use these dbt packages.
 
 ## What does this dbt package do?
 <!--section="intercom_source_model"-->
@@ -30,7 +30,7 @@
 ## How do I use the dbt package?
 ### Step 1: Prerequisites
 To use this dbt package, you must have the following:
-- At least one Fivetran Intercom connector syncing data into your destination.
+- At least one Fivetran Intercom connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 ### Step 2: Install the package
 Include the following intercom_source package version in your `packages.yml` file.

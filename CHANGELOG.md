@@ -1,3 +1,8 @@
+# dbt_intercom_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#39](https://github.com/fivetran/dbt_intercom_source/pull/39))
+
 # dbt_intercom_source v0.8.0
 
 [PR #36](https://github.com/fivetran/dbt_intercom_source/pull/36) includes the following updates:
