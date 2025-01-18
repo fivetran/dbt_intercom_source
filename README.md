@@ -15,11 +15,11 @@
 
 # Intercom Source dbt Package ([Docs](https://fivetran.github.io/dbt_intercom_source/))
 
-> NOTE: Our Intercom [model](https://github.com/fivetran/dbt_intercom) and [source](https://github.com/fivetran/dbt_intercom_source) dbt packages only work with connections that were [created in July 2020](https://fivetran.com/docs/applications/intercom/changelog) or later. If you created your connector before July 2020, you must set up a new Intercom connector to use these dbt packages.
+> NOTE: Our Intercom [model](https://github.com/fivetran/dbt_intercom) and [source](https://github.com/fivetran/dbt_intercom_source) dbt packages only work with connections that were [created in July 2020](https://fivetran.com/docs/applications/intercom/changelog) or later. If you created your connection before July 2020, you must set up a new Intercom connection to use these dbt packages.
 
 ## What does this dbt package do?
 <!--section="intercom_source_model"-->
-- Materializes [Intercom staging tables](https://fivetran.github.io/dbt_intercom_source/#!/overview/intercom_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/intercom#schemainformation). These staging tables clean, test, and prepare your Intercom data from [Fivetran's connector](https://fivetran.com/docs/applications/intercom) for analysis by doing the following:
+- Materializes [Intercom staging tables](https://fivetran.github.io/dbt_intercom_source/#!/overview/intercom_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/intercom#schemainformation). These staging tables clean, test, and prepare your Intercom data from [Fivetran's ](https://fivetran.com/docs/applications/intercom) for analysis by doing the following:
   - Names columns for consistency across all packages and for easier analysis
   - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
@@ -73,7 +73,7 @@ vars:
 #### Disabling Models
 This package includes Intercom's `company tag`, `contact tag`, `contact company`,`conversation tag`, `team` and `team admin` mapping tables.
 
-It's possible that your connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, the package assumes that all variables are true. Add variables for only the tables you want to disable.
+It's possible that your connection does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, the package assumes that all variables are true. Add variables for only the tables you want to disable.
 
 ```yml
 # dbt_project.yml
