@@ -1,14 +1,14 @@
 name: 'intercom_source_integration_tests'
-version: '0.8.0'
+version: '0.8.1'
 profile: 'integration_tests'
 config-version: 2
 models:
   intercom_source:
-    materialized: table
+    +materialized: table
     tmp:
-      materialized: view
+      +materialized: view
 vars:
-  intercom__using_team: false
+  intercom__using_team: false # Comment out for docs generation
   intercom_schema: intercom_source_integration_tests
   intercom_admin_identifier: "admin_data"
   intercom_company_history_identifier: "company_history_data"
