@@ -1,4 +1,6 @@
-<p align="center">
+# Intercom Source dbt Package ([Docs](https://fivetran.github.io/dbt_intercom_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_intercom_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -12,8 +14,6 @@
         href="https://fivetran.com/docs/transformations/dbt/quickstart">
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
-
-# Intercom Source dbt Package ([Docs](https://fivetran.github.io/dbt_intercom_source/))
 
 > NOTE: Our Intercom [model](https://github.com/fivetran/dbt_intercom) and [source](https://github.com/fivetran/dbt_intercom_source) dbt packages only work with connections that were [created in July 2020](https://fivetran.com/docs/applications/intercom/changelog) or later. If you created your connection before July 2020, you must set up a new Intercom connection to use these dbt packages.
 
