@@ -1,5 +1,5 @@
 name: 'intercom_source_integration_tests'
-version: '0.8.1'
+version: '0.9.0'
 profile: 'integration_tests'
 config-version: 2
 models:
@@ -98,3 +98,6 @@ seeds:
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
+
+flags:
+  send_anonymous_usage_stats: False
