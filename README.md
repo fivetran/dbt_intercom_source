@@ -39,7 +39,7 @@ Include the following intercom_source package version in your `packages.yml` fil
 ```yaml
 packages:
   - package: fivetran/intercom_source
-    version: ['>=0.9.0', '<0.10.0']
+    version: [">=0.9.0", "<0.10.0"]
 ```
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `intercom` schema. If this is not where your Intercom data is (for example, if your Intercom schema is named `intercom_fivetran`), add the following configuration to your root `dbt_project.yml` file:
