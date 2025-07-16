@@ -10,9 +10,6 @@
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
-    <a alt="Fivetran Quickstart Compatible"
-        href="https://fivetran.com/docs/transformations/dbt/quickstart">
-        <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
 > NOTE: Our Intercom [model](https://github.com/fivetran/dbt_intercom) and [source](https://github.com/fivetran/dbt_intercom_source) dbt packages only work with connections that were [created in July 2020](https://fivetran.com/docs/applications/intercom/changelog) or later. If you created your connection before July 2020, you must set up a new Intercom connection to use these dbt packages.
@@ -105,7 +102,7 @@ models:
 <details><summary>Expand for more details</summary>
 
 Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core™ setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
-    
+
 ## Does this package have dependencies?
 This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
@@ -120,7 +117,7 @@ packages:
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
 > IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_intercom_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
-    
+
 ```yml
 vars:
     intercom_<default_source_table_name>_identifier: your_table_name
