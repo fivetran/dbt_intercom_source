@@ -1,4 +1,6 @@
-# Intercom Source dbt Package ([Docs](https://fivetran.github.io/dbt_intercom_source/))
+# [DEPRECATED] Intercom Source dbt Package
+
+> _This package has been archived and is no longer maintained. Use [`dbt_intercom`](https://github.com/fivetran/dbt_intercom) instead, which now contains all models previously found here._
 
 <p align="left">
     <a alt="License"
@@ -7,13 +9,9 @@
     <a alt="dbt-core">
         <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
-        <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
+        <img src="https://img.shields.io/badge/Maintained%3F-no-green.svg" /></a>
     <a alt="PRs">
-        <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
-    <a alt="Fivetran Quickstart Compatible"
-        href="https://fivetran.com/docs/transformations/dbt/quickstart">
-        <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
-</p>
+        <img src="https://img.shields.io/badge/Contributions-closed-blueviolet" /></a></p>
 
 > NOTE: Our Intercom [model](https://github.com/fivetran/dbt_intercom) and [source](https://github.com/fivetran/dbt_intercom_source) dbt packages only work with connections that were [created in July 2020](https://fivetran.com/docs/applications/intercom/changelog) or later. If you created your connection before July 2020, you must set up a new Intercom connection to use these dbt packages.
 
